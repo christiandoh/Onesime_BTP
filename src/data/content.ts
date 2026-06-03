@@ -271,7 +271,14 @@ export const ONESIME = {
     { title: 'Réseaux Haute Tension – Industriels', category: 'Génie Civil', location: 'Abidjan, Zone 3', image: '/images/electricite/electrique-3.jpeg' },
     { title: 'Armoire Électrique – Site Industriel', category: 'Génie Civil', location: 'Abidjan, Cocody', image: '/images/electricite/electrique-4.jpeg' },
     { title: 'Lotissement 500 Parcelles', category: 'Gros Œuvre', location: 'Cocody, Abidjan', image: '/images/projects/project-26.jpeg' },
+    // Fourniture
     { title: 'Fourniture de Matériaux – Autoroute du Nord', category: 'Fourniture', location: 'Abidjan – Bouaké', image: '/images/projects/project-29.jpeg' },
+    { title: 'Fourniture de Ciment – Chantier Résidentiel', category: 'Fourniture', location: 'Abidjan, Cocody', image: '/images/fourniture_materiaux/ciment.jpg' },
+    { title: 'Matériaux de Construction – Stock', category: 'Fourniture', location: 'Abidjan, Zone 3', image: '/images/fourniture_materiaux/materiaux.jpg' },
+    { title: 'Lot de Matériel BTP', category: 'Fourniture', location: 'Abidjan, Yopougon', image: '/images/fourniture_materiaux/materiel_en_une_image.jpg' },
+    { title: 'Outillage – Perceuse Industrielle', category: 'Fourniture', location: 'Abidjan, Plateau', image: '/images/fourniture_materiaux/metriaux_perceuse.jpg' },
+    { title: 'Fourniture de Peinture – Bâtiment', category: 'Fourniture', location: 'Abidjan, Cocody', image: '/images/fourniture_materiaux/peinture.jpg' },
+    { title: 'Tuyauterie – Assainissement', category: 'Fourniture', location: 'Abidjan, Bingerville', image: '/images/fourniture_materiaux/tuyeau.jpg' },
     { title: "Transport d'Engins Lourds – Port de San Pedro", category: 'Génie Civil', location: 'San Pedro', image: '/images/projects/project-31.jpeg' },
     { title: 'Logistique Chantier – San Pedro', category: 'Génie Civil', location: 'San Pedro', image: '/images/projects/project-44.jpeg' },
     // Électricité
@@ -279,14 +286,13 @@ export const ONESIME = {
     { title: 'Tableau Électrique – Industrie', category: 'Électricité', location: 'Abidjan, Zone 4', image: '/images/electricite/electrique-6.jpeg' },
     { title: 'Câblage Industriel – Haute Tension', category: 'Électricité', location: 'Abidjan, Yopougon', image: '/images/electricite/electrique-7.jpeg' },
     // Éclairage
-    { title: 'Éclairage Public – Boulevard Lagunaire', category: 'Éclairage', location: 'Abidjan, Cocody', image: '/images/projects/project-35.jpeg' },
-    { title: 'Éclairage Public – Ville de Bouaké', category: 'Éclairage', location: 'Bouaké', image: '/images/projects/project-41.jpeg' },
+    // { title: 'Éclairage Public – Boulevard Lagunaire', category: 'Éclairage', location: 'Abidjan, Cocody', image: '/images/projects/project-35.jpeg' },
+    // { title: 'Éclairage Public – Ville de Bouaké', category: 'Éclairage', location: 'Bouaké', image: '/images/projects/project-41.jpeg' },
     { title: 'Éclairage LED – Voirie Urbaine', category: 'Éclairage', location: 'Abidjan, Plateau', image: '/images/eclairage/eclairage-1.jpeg' },
     { title: 'Éclairage Public Connecté', category: 'Éclairage', location: 'Abidjan, Cocody', image: '/images/eclairage/eclairage-2.jpeg' },
     { title: 'Lampadaires Intelligents', category: 'Éclairage', location: 'Abidjan, Marcory', image: '/images/eclairage/eclairage-3.jpeg' },
     // Domotique
-    { title: 'Villa Domotique – Riviera', category: 'Domotique', location: 'Abidjan, Riviera', image: '/images/projects/project-36.jpeg' },
-    { title: 'Domotique – Villa Intelligente', category: 'Domotique', location: 'Abidjan, Marcory', image: '/images/chantier/project-42.jpeg' },
+    // { title: 'Villa Domotique – Riviera', category: 'Domotique', location: 'Abidjan, Riviera', image: '/images/projects/project-36.jpeg' },
     { title: 'Système Domotique Complet', category: 'Domotique', location: 'Abidjan, Cocody', image: '/images/domotique/domotique-1.jpeg' },
     { title: 'Automatisation Résidentielle', category: 'Domotique', location: 'Abidjan, Riviera', image: '/images/domotique/domotique-2.jpeg' },
     { title: 'Smart Home – Contrôle Centralisé', category: 'Domotique', location: 'Abidjan, Plateau', image: '/images/domotique/domotique-4.jpeg' },
@@ -328,6 +334,9 @@ export const ONESIME = {
     { src: '/images/transport_machine_BTP/paileteuse.jpg', category: 'Engins', title: 'Pelleteuse sur chantier' },
     { src: '/images/transport_machine_BTP/MACHINE_CATEPILA.jpeg', category: 'Engins', title: 'Machine Caterpillar' },
     { src: '/images/transport_machine_BTP/camion_beine.jpg', category: 'Engins', title: 'Camion benne pour chantier' },
+    { src: '/images/fourniture_materiaux/materiaux.jpg', category: 'Fourniture', title: 'Matériaux de construction' },
+    { src: '/images/fourniture_materiaux/ciment.jpg', category: 'Fourniture', title: 'Fourniture de ciment' },
+    { src: '/images/fourniture_materiaux/tuyeau.jpg', category: 'Fourniture', title: 'Tuyauterie BTP' },
   ],
 
   actualites: [

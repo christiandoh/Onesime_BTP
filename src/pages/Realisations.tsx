@@ -246,7 +246,7 @@ export default function Realisations() {
             </h2>
           </motion.div>
 
-          {['Chantier', 'Engins', 'Construction', 'Équipe', 'Infrastructure', 'Architecture', 'Ingénierie', 'Outillage'].map(gc => {
+          {['Chantier', 'Engins', 'Construction', 'Équipe', 'Infrastructure', 'Architecture', 'Ingénierie', 'Outillage', 'Fourniture'].map(gc => {
             const items = ONESIME.gallery.filter(g => g.category === gc)
             if (items.length === 0) return null
             return (
