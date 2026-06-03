@@ -299,6 +299,18 @@ export const ONESIME = {
     { title: 'Domotique – Contrôle Intelligent', category: 'Domotique', location: 'Abidjan, Bingerville', image: '/images/domotique/smart_home1.jpeg' },
     { title: 'Construction Immeuble R+8 – Plateau', category: 'Génie Civil', location: 'Abidjan, Plateau', image: '/images/projects/project-38.jpeg' },
     { title: 'Terrassement – Zone d\'Activités', category: 'Gros Œuvre', location: 'Abidjan, PK24', image: '/images/projects/project-39.jpeg' },
+    // Chantiers
+    { title: 'Chantier de Bingerville', category: 'Génie Civil', location: 'Bingerville', image: '/images/chantier/bingerville.jpg' },
+    { title: 'Chantier Résidentiel – Bingerville', category: 'Gros Œuvre', location: 'Bingerville', image: '/images/chantier/chantier_bingerville.jpg' },
+    { title: 'Chantier – Ville de Man', category: 'Génie Civil', location: 'Man', image: '/images/chantier/chantier_ville_de_MAN.jpg' },
+    { title: 'Tunnel – Abobo', category: 'Génie Civil', location: 'Abidjan, Abobo', image: '/images/chantier/tunnel_abobo.jpg' },
+    // Engins & Machines BTP
+    { title: 'Applatisseur Goudron – Voirie', category: 'Gros Œuvre', location: 'Abidjan', image: '/images/transport_machine_BTP/applatissuer_goudron.jpg' },
+    { title: 'Camion Benne – Transport', category: 'Transport', location: 'Abidjan', image: '/images/transport_machine_BTP/camion_beine.jpg' },
+    { title: 'Groupe Électrogène CAT – Industrie', category: 'Électricité', location: 'Abidjan', image: '/images/transport_machine_BTP/CAT Diesel Generator.jpg' },
+    { title: 'Machine Caterpillar – Terrassement', category: 'Gros Œuvre', location: 'Abidjan', image: '/images/transport_machine_BTP/MACHINE_CATEPILA.jpeg' },
+    { title: 'Engin de Chantier – Nivellement', category: 'Gros Œuvre', location: 'Abidjan', image: '/images/transport_machine_BTP/MACHINE1.jpeg' },
+    { title: 'Pelleteuse – Excavation', category: 'Gros Œuvre', location: 'Abidjan', image: '/images/transport_machine_BTP/paileteuse.jpg' },
   ] as Project[],
 
   gallery: [
@@ -314,6 +326,11 @@ export const ONESIME = {
     { src: '/images/gallery/gallery-10.jpeg', category: 'Ingénierie', title: 'Ingénieur avec plans' },
     { src: '/images/gallery/gallery-11.jpeg', category: 'Architecture', title: 'Façade en verre moderne' },
     { src: '/images/gallery/gallery-12.jpeg', category: 'Outillage', title: 'Équipement de chantier' },
+    { src: '/images/chantier/bingerville.jpg', category: 'Chantier', title: 'Chantier à Bingerville' },
+    { src: '/images/chantier/tunnel_abobo.jpg', category: 'Chantier', title: 'Tunnel en construction à Abobo' },
+    { src: '/images/transport_machine_BTP/paileteuse.jpg', category: 'Engins', title: 'Pelleteuse sur chantier' },
+    { src: '/images/transport_machine_BTP/MACHINE_CATEPILA.jpeg', category: 'Engins', title: 'Machine Caterpillar' },
+    { src: '/images/transport_machine_BTP/camion_beine.jpg', category: 'Engins', title: 'Camion benne pour chantier' },
   ],
 
   actualites: [
