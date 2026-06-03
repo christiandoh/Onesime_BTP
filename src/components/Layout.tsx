@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
+import Chatbot from './Chatbot'
 import { ONESIME } from '../data/content'
 import { waUrl } from '../utils/asset'
 
@@ -23,6 +24,8 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+
+      <Chatbot />
 
       {/* WhatsApp Float */}
       <a
