@@ -362,7 +362,7 @@ function OrbitalClients() {
         border: '2px solid rgba(255,255,255,0.12)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         position: 'relative', zIndex: 999,
-        padding: 16,
+        padding: 16, marginTop: 28,
         boxShadow: '0 0 40px rgba(227,6,19,0.15)',
       }}>
         <img src={asset('/images/logo/logo.png')} alt="Onesime BTP" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
