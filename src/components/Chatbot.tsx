@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { asset } from '../utils/asset'
 import { ONESIME } from '../data/content'
 
 const STORAGE_KEY = 'onesimeai_messages'
@@ -167,30 +168,26 @@ export default function Chatbot() {
       {/* Floating button */}
       <motion.button
         onClick={() => setOpen(prev => !prev)}
+        animate={{ y: [0, -3, 0] }}
+        transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
         style={{
           position: 'fixed', bottom: 100, left: 28, zIndex: 998,
           width: 56, height: 56, borderRadius: '50%',
-          background: 'linear-gradient(135deg, #111, #333)',
-          border: '2px solid rgba(255,255,255,0.15)',
-          color: 'white', cursor: 'pointer',
+          background: 'transparent',
+          border: 'none',
+          cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          boxShadow: '0 6px 24px rgba(0,0,0,0.3)',
-          fontSize: 22,
+          padding: 0,
         }}
         aria-label="OnesimeAI"
       >
-        {open ? (
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        ) : (
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="white" strokeWidth="1.5">
-            <path d="M12 2l1.5 5.5L19 9l-5.5 1.5L12 16l-1.5-5.5L5 9l5.5-1.5z" />
-            <circle cx="12" cy="12" r="10" opacity="0.3" />
-          </svg>
-        )}
+        <img
+          src={asset('/images/logo/Onesim_AI.png')}
+          alt="OnesimeAI"
+          style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%' }}
+        />
       </motion.button>
 
       <AnimatePresence>
