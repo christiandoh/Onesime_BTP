@@ -8,6 +8,7 @@ const DAILY_LIMIT = 3
 interface ChatMsg {
   role: 'bot' | 'user'
   text: string
+  type: 'text' | 'biography' | 'contact'
   time: number
 }
 
@@ -31,66 +32,76 @@ function getDailyCount(messages: ChatMsg[]): number {
   }).length
 }
 
-const biography = (
-  <div style={{ fontSize: '.85rem', lineHeight: 1.7 }}>
-    <p style={{ margin: '0 0 10px', fontWeight: 700, fontSize: '.95rem', color: '#F4C400' }}>
-      Bienvenue chez <span style={{ color: '#E30613' }}>Onesime BTP</span> 👋
-    </p>
-    <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.8)' }}>
-      <strong>Raison sociale :</strong> Onesime BTP
-    </p>
-    <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.8)' }}>
-      <strong>Secteur :</strong> Bâtiment et Travaux Publics (BTP)
-    </p>
-    <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.8)' }}>
-      <strong>Zone d'intervention :</strong> Abidjan et toute la Côte d'Ivoire
-    </p>
-    <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.65)', fontSize: '.8rem' }}>
-      Spécialisée dans la fourniture de sable, gravier, latérite et les prestations de construction, génie civil, électricité industrielle, éclairage public, domotique et location de camions benne.
-    </p>
-    <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.65)', fontSize: '.8rem' }}>
-      <strong>Qualité garantie — Livraison rapide — Prix compétitifs</strong>
-    </p>
-    <p style={{ margin: '0', color: 'rgba(255,255,255,0.5)', fontSize: '.78rem', fontStyle: 'italic' }}>
-      +500 chantiers livrés · 8+ ans d'expérience · 7j/7
-    </p>
-  </div>
-)
+function BiographyMsg() {
+  return (
+    <div style={{ fontSize: '.85rem', lineHeight: 1.7 }}>
+      <p style={{ margin: '0 0 10px', fontWeight: 700, fontSize: '.95rem', color: '#F4C400' }}>
+        Bienvenue chez <span style={{ color: '#E30613' }}>Onesime BTP</span>
+      </p>
+      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.8)' }}>
+        <strong>Raison sociale :</strong> Onesime BTP
+      </p>
+      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.8)' }}>
+        <strong>Secteur :</strong> Bâtiment et Travaux Publics (BTP)
+      </p>
+      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.8)' }}>
+        <strong>Zone d'intervention :</strong> Abidjan et toute la Côte d'Ivoire
+      </p>
+      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.65)', fontSize: '.8rem' }}>
+        Spécialisée dans la fourniture de sable, gravier, latérite et les prestations de construction, génie civil, électricité industrielle, éclairage public, domotique et location de camions benne.
+      </p>
+      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.65)', fontSize: '.8rem' }}>
+        <strong>Qualité garantie — Livraison rapide — Prix compétitifs</strong>
+      </p>
+      <p style={{ margin: '0', color: 'rgba(255,255,255,0.5)', fontSize: '.78rem', fontStyle: 'italic' }}>
+        +500 chantiers livrés · 8+ ans d'expérience · 7j/7
+      </p>
+    </div>
+  )
+}
 
-const contactMsg = (
-  <div style={{ fontSize: '.85rem', lineHeight: 1.7 }}>
-    <p style={{ margin: '0 0 10px', color: 'rgba(255,255,255,0.8)' }}>
-      Pour toute demande personnalisée, veuillez contacter notre équipe support :
-    </p>
-    <div style={{
-      background: 'rgba(227,6,19,0.12)', borderRadius: 10, padding: 12, marginBottom: 10,
-      border: '1px solid rgba(227,6,19,0.2)',
-    }}>
-      <p style={{ margin: '0 0 4px', color: '#F4C400', fontWeight: 600, fontSize: '.8rem' }}>📧 Emails</p>
-      <p style={{ margin: '0 0 2px', color: 'rgba(255,255,255,0.7)', fontSize: '.8rem' }}>secretariat@onesime-btp.com</p>
-      <p style={{ margin: '0 0 2px', color: 'rgba(255,255,255,0.7)', fontSize: '.8rem' }}>fabrice.krouba@onesime-btp.com</p>
-      <p style={{ margin: '0', color: 'rgba(255,255,255,0.7)', fontSize: '.8rem' }}>reine.poele@onesime-btp.com</p>
+function ContactMsg() {
+  return (
+    <div style={{ fontSize: '.85rem', lineHeight: 1.7 }}>
+      <p style={{ margin: '0 0 10px', color: 'rgba(255,255,255,0.8)' }}>
+        Pour toute demande personnalisée, veuillez contacter notre équipe support :
+      </p>
+      <div style={{
+        background: 'rgba(227,6,19,0.12)', borderRadius: 10, padding: 12, marginBottom: 10,
+        border: '1px solid rgba(227,6,19,0.2)',
+      }}>
+        <p style={{ margin: '0 0 4px', color: '#F4C400', fontWeight: 600, fontSize: '.8rem' }}>Emails</p>
+        <p style={{ margin: '0 0 2px', color: 'rgba(255,255,255,0.7)', fontSize: '.8rem' }}>secretariat@onesime-btp.com</p>
+        <p style={{ margin: '0 0 2px', color: 'rgba(255,255,255,0.7)', fontSize: '.8rem' }}>fabrice.krouba@onesime-btp.com</p>
+        <p style={{ margin: '0', color: 'rgba(255,255,255,0.7)', fontSize: '.8rem' }}>reine.poele@onesime-btp.com</p>
+      </div>
+      <div style={{
+        background: 'rgba(37,211,102,0.1)', borderRadius: 10, padding: 12,
+        border: '1px solid rgba(37,211,102,0.2)',
+      }}>
+        <p style={{ margin: '0 0 4px', color: '#25D366', fontWeight: 600, fontSize: '.8rem' }}>WhatsApp</p>
+        <a
+          href={`https://wa.me/${ONESIME.contact.whatsapp}?text=${encodeURIComponent('Bonjour Onesime BTP, je souhaite obtenir des informations.')}`}
+          target="_blank" rel="noopener noreferrer"
+          style={{ color: '#25D366', fontSize: '.82rem', textDecoration: 'underline' }}
+        >
+          {ONESIME.contact.phone1}
+        </a>
+      </div>
     </div>
-    <div style={{
-      background: 'rgba(37,211,102,0.1)', borderRadius: 10, padding: 12,
-      border: '1px solid rgba(37,211,102,0.2)',
-    }}>
-      <p style={{ margin: '0 0 4px', color: '#25D366', fontWeight: 600, fontSize: '.8rem' }}>💬 WhatsApp</p>
-      <a
-        href={`https://wa.me/${ONESIME.contact.whatsapp}?text=${encodeURIComponent('Bonjour Onesime BTP, je souhaite obtenir des informations.')}`}
-        target="_blank" rel="noopener noreferrer"
-        style={{ color: '#25D366', fontSize: '.82rem', textDecoration: 'underline' }}
-      >
-        {ONESIME.contact.phone1}
-      </a>
-    </div>
-  </div>
-)
+  )
+}
+
+function MessageContent({ msg }: { msg: ChatMsg }) {
+  if (msg.type === 'biography') return <BiographyMsg />
+  if (msg.type === 'contact') return <ContactMsg />
+  return <>{msg.text}</>
+}
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState<ChatMsg[]>([
-    { role: 'bot', text: 'Bienvenue ! Posez votre question à OnesimeAI.', time: Date.now() },
+    { role: 'bot', text: 'Bienvenue ! Posez votre question à OnesimeAI.', type: 'text', time: Date.now() },
   ])
   const [input, setInput] = useState('')
   const [firstAnswered, setFirstAnswered] = useState(false)
@@ -100,11 +111,10 @@ export default function Chatbot() {
   useEffect(() => {
     const stored = getStorage()
     const today = new Date().toDateString()
-    if (stored.date === today) {
-      setMessages(stored.messages.length > 0 ? stored.messages : messages)
+    if (stored.date === today && stored.messages.length > 0) {
+      setMessages(stored.messages)
       setDailyCount(getDailyCount(stored.messages))
-      const hasUserMsg = stored.messages.some(m => m.role === 'user')
-      setFirstAnswered(hasUserMsg)
+      setFirstAnswered(stored.messages.some(m => m.role === 'user'))
     }
   }, [])
 
@@ -122,38 +132,37 @@ export default function Chatbot() {
     const text = input.trim()
     if (!text) return
 
-    const today = new Date().toDateString()
     const stored = getStorage()
-    const count = stored.date === today ? getDailyCount(stored.messages) : 0
+    const count = stored.date === new Date().toDateString() ? getDailyCount(stored.messages) : 0
+
+    const userMsg: ChatMsg = { role: 'user', text, type: 'text', time: Date.now() }
 
     if (count >= DAILY_LIMIT) {
-      addMessage({ role: 'user', text, time: Date.now() })
-      const reply: ChatMsg = {
+      addMessage(userMsg)
+      addMessage({
         role: 'bot',
         text: `Limite de ${DAILY_LIMIT} messages atteinte pour aujourd'hui. Veuillez nous contacter par email ou WhatsApp pour toute assistance.`,
+        type: 'text',
         time: Date.now(),
-      }
-      addMessage(reply)
+      })
       setInput('')
       return
     }
 
-    const userMsg: ChatMsg = { role: 'user', text, time: Date.now() }
     addMessage(userMsg)
     setDailyCount(prev => prev + 1)
+    setInput('')
 
     setTimeout(() => {
-      let response: ChatMsg
-      if (!firstAnswered && !messages.some(m => m.role === 'user')) {
-        response = { role: 'bot', text: JSON.stringify(biography), time: Date.now() }
-        setFirstAnswered(true)
-      } else {
-        response = { role: 'bot', text: JSON.stringify(contactMsg), time: Date.now() }
-      }
-      addMessage(response)
+      const isFirst = !firstAnswered && !messages.some(m => m.role === 'user')
+      addMessage({
+        role: 'bot',
+        text: isFirst ? 'biography' : 'contact',
+        type: isFirst ? 'biography' : 'contact',
+        time: Date.now(),
+      })
+      if (isFirst) setFirstAnswered(true)
     }, 600)
-
-    setInput('')
   }
 
   return (
@@ -250,8 +259,7 @@ export default function Chatbot() {
                 }}>
                   <div style={{
                     maxWidth: '85%',
-                    padding: msg.role === 'bot' && typeof msg.text === 'string' && msg.text.startsWith('{')
-                      ? 14 : '10px 14px',
+                    padding: msg.type !== 'text' ? 14 : '10px 14px',
                     borderRadius: msg.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px',
                     background: msg.role === 'user'
                       ? 'linear-gradient(135deg, #E30613, #B8000D)'
@@ -261,9 +269,7 @@ export default function Chatbot() {
                     lineHeight: 1.6,
                     border: msg.role === 'bot' ? '1px solid rgba(255,255,255,0.05)' : 'none',
                   }}>
-                    {msg.role === 'bot' && typeof msg.text === 'string' && msg.text.startsWith('{')
-                      ? JSON.parse(msg.text)
-                      : msg.text}
+                    <MessageContent msg={msg} />
                     <div style={{
                       fontSize: '.62rem', marginTop: 4,
                       color: msg.role === 'user' ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.25)',
