@@ -34,27 +34,24 @@ function getDailyCount(messages: ChatMsg[]): number {
 
 function BiographyMsg() {
   return (
-    <div style={{ fontSize: '.85rem', lineHeight: 1.7 }}>
-      <p style={{ margin: '0 0 10px', fontWeight: 700, fontSize: '.95rem', color: '#F4C400' }}>
+    <div style={{ fontSize: '.85rem', lineHeight: 1.8 }}>
+      <p style={{ margin: '0 0 12px', fontWeight: 700, fontSize: '.95rem', color: '#F4C400' }}>
         Bienvenue chez <span style={{ color: '#E30613' }}>Onesime BTP</span>
       </p>
-      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.8)' }}>
-        <strong>Raison sociale :</strong> Onesime BTP
+      <p style={{ margin: '0 0 10px', color: 'rgba(255,255,255,0.8)' }}>
+        Onesime BTP est une entreprise ivoirienne spécialisée dans le Bâtiment et les Travaux Publics (BTP), basée à Abidjan et intervenant sur toute la Côte d'Ivoire. Forte de plus de 8 ans d'expérience et de plus de 500 chantiers livrés, notre entreprise s'est imposée comme un acteur incontournable dans la fourniture de matériaux de construction et les prestations de services BTP.
       </p>
-      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.8)' }}>
-        <strong>Secteur :</strong> Bâtiment et Travaux Publics (BTP)
+      <p style={{ margin: '0 0 10px', color: 'rgba(255,255,255,0.75)' }}>
+        Nous proposons une gamme complète de services incluant la fourniture de sable, gravier et latérite, la location de camions benne, le gros œuvre, la construction complète de bâtiments, le génie civil, l'électricité industrielle, l'éclairage public et la domotique. Chaque livraison est rigoureusement contrôlée pour garantir une qualité optimale à nos clients.
       </p>
-      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.8)' }}>
-        <strong>Zone d'intervention :</strong> Abidjan et toute la Côte d'Ivoire
+      <p style={{ margin: '0 0 10px', color: 'rgba(255,255,255,0.75)' }}>
+        Notre équipe de professionnels qualifiés met tout en oeuvre pour assurer des prestations fiables, dans le respect des délais et des normes les plus exigeantes. Nous collaborons avec les plus grandes marques telles que Schneider Electric, ABB, Legrand et SKF, et comptons parmi nos partenaires des institutions publiques et privées de premier plan.
       </p>
-      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.65)', fontSize: '.8rem' }}>
-        Spécialisée dans la fourniture de sable, gravier, latérite et les prestations de construction, génie civil, électricité industrielle, éclairage public, domotique et location de camions benne.
-      </p>
-      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.65)', fontSize: '.8rem' }}>
+      <p style={{ margin: '0 0 8px', color: 'rgba(255,255,255,0.65)', fontSize: '.8rem', borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 10 }}>
         <strong>Qualité garantie — Livraison rapide — Prix compétitifs</strong>
       </p>
-      <p style={{ margin: '0', color: 'rgba(255,255,255,0.5)', fontSize: '.78rem', fontStyle: 'italic' }}>
-        +500 chantiers livrés · 8+ ans d'expérience · 7j/7
+      <p style={{ margin: '0', color: 'rgba(255,255,255,0.45)', fontSize: '.75rem', fontStyle: 'italic' }}>
+        +500 chantiers livrés · 8+ ans d'expérience · 50+ camions · 7j/7
       </p>
     </div>
   )
