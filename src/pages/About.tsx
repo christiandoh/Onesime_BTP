@@ -13,10 +13,14 @@ function useRotation() {
 
   useEffect(() => {
     let id: number
+    let frameCount = 0
     const tick = (now: number) => {
-      last.current = now
-      ref.current = (ref.current + 0.15 * 0.016) % (2 * Math.PI)
-      setAngle(ref.current)
+      frameCount++
+      if (frameCount % 2 === 0) {
+        last.current = now
+        ref.current = (ref.current + 0.15 * 0.016) % (2 * Math.PI)
+        setAngle(ref.current)
+      }
       id = requestAnimationFrame(tick)
     }
     id = requestAnimationFrame(tick)
@@ -31,7 +35,7 @@ export default function About() {
     <>
       <section style={{
         paddingTop: 140, paddingBottom: 80,
-        background: 'linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url(/images/image_header.png)',
+        background: 'linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url(/images/image_header.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         textAlign: 'center',
@@ -103,7 +107,7 @@ export default function About() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 200 }}
               >
-                <ZoomableImage src="/images/a propos.png" alt="Onesime BTP" style={{
+                <ZoomableImage src="/images/a propos.jpg" alt="Onesime BTP" style={{
                   width: '100%', borderRadius: 24, height: 420, objectFit: 'cover',
                 }} />
               </motion.div>

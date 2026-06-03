@@ -34,11 +34,15 @@ function useRotation() {
 
   useEffect(() => {
     let id: number
+    let frameCount = 0
     const tick = (now: number) => {
-      const dt = (now - last.current) / 1000
-      last.current = now
-      ref.current = (ref.current + 0.12 * dt) % (2 * Math.PI)
-      setAngle(ref.current)
+      frameCount++
+      if (frameCount % 2 === 0) {
+        const dt = (now - last.current) / 1000
+        last.current = now
+        ref.current = (ref.current + 0.12 * dt) % (2 * Math.PI)
+        setAngle(ref.current)
+      }
       id = requestAnimationFrame(tick)
     }
     id = requestAnimationFrame(tick)
@@ -65,7 +69,7 @@ export default function Home() {
     <>
       <section style={{
         height: '100dvh',
-        background: 'linear-gradient(135deg, rgba(0,0,0,0.82), rgba(0,0,0,0.65)), url(/images/image_header.png)',
+        background: 'linear-gradient(135deg, rgba(0,0,0,0.82), rgba(0,0,0,0.65)), url(/images/image_header.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         position: 'relative', overflow: 'hidden',
@@ -120,6 +124,7 @@ export default function Home() {
                   <img
                     src={item.src}
                     alt={item.label}
+                    loading="lazy"
                     style={{
                       width: '100%', height: '100%', objectFit: 'cover',
                       borderRadius: 16, boxShadow: '0 4px 20px rgba(0,0,0,0.4)',
@@ -136,7 +141,7 @@ export default function Home() {
         <div style={{
           position: 'relative', zIndex: 3,
           display: 'flex', flexDirection: 'column', alignItems: 'center',
-          gap: 24,
+          gap: 16, marginTop: 24,
         }}>
           <motion.img
             src="/images/logo/logo.png"
@@ -145,7 +150,7 @@ export default function Home() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
             style={{
-              width: 'clamp(180px, 35vw, 280px)',
+              width: 'clamp(120px, 22vw, 200px)',
               height: 'auto',
               filter: 'drop-shadow(0 8px 32px rgba(227,6,19,0.3))',
             }}
@@ -387,7 +392,7 @@ export default function Home() {
       {/* CTA */}
       <section style={{
         padding: '60px 0',
-        background: 'linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.75)), url(/images/image_header.png)',
+        background: 'linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.75)), url(/images/image_header.jpg)',
         backgroundSize: 'cover', backgroundPosition: 'center',
         textAlign: 'center', position: 'relative',
       }}>

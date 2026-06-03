@@ -239,25 +239,25 @@ export const ONESIME = {
   testimonials: [
     {
       name: 'Kouadio Alain',
-      role: 'Promoteur immobilier, Cocody',
+      role: 'Promoteur immobilier, Yamoussoukro',
       text: 'Livraison rapide et ponctuelle. Le sable était de très bonne qualité. Je recommande Onesime BTP sans hésitation pour vos chantiers à Abidjan.',
-      image: '/images/testimonials/avatar-1.jpeg',
+      image: '/images/testimonials/avatar-6.jpg',
     },
     {
-      name: 'Aminata Touré',
-      role: 'Ingénieure BTP, Yopougon',
+      name: 'Don Kapeu Josias',
+      role: 'Ingénieure BTP, Man',
       text: 'Prix compétitifs et équipe très professionnelle. On a eu notre commande de gravier en moins de 24 heures. Excellent service !',
-      image: '/images/testimonials/avatar-2.jpeg',
+      image: '/images/testimonials/avatar-5.jpg',
     },
     {
-      name: "N'Guessan Didier",
+      name: "kouakou Ange Mari",
       role: 'Chef de chantier, Bingerville',
       text: "Disponibles le week-end, c'est rare ! Nous avons besoin de latérite en urgence et ils ont livré le samedi matin. Très satisfait.",
       image: '/images/testimonials/avatar-3.jpeg',
     },
     {
       name: 'Fatima Ouattara',
-      role: 'Directrice des opérations, Plateau',
+      role: 'Directrice des opérations, Gagnoa',
       text: 'Un service fiable et ponctuel. La qualité des matériaux est constante et les livraisons toujours à l\'heure. Je recommande vivement.',
       image: '/images/testimonials/avatar-4.jpeg',
     },

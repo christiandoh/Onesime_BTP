@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-export default function ZoomableImage({ src, alt, style, className, onMouseOver, onMouseOut }: {
+export default function ZoomableImage({ src, alt, style, className, onMouseOver, onMouseOut, loading = 'lazy' }: {
   src: string
   alt: string
   style?: React.CSSProperties
   className?: string
   onMouseOver?: (e: React.MouseEvent<HTMLImageElement>) => void
   onMouseOut?: (e: React.MouseEvent<HTMLImageElement>) => void
+  loading?: 'lazy' | 'eager'
 }) {
   const [open, setOpen] = useState(false)
 
@@ -16,6 +17,7 @@ export default function ZoomableImage({ src, alt, style, className, onMouseOver,
       <img
         src={src}
         alt={alt}
+        loading={loading}
         style={{ ...style, cursor: 'zoom-in' }}
         className={className}
         onMouseOver={onMouseOver}
