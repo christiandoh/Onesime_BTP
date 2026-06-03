@@ -165,29 +165,41 @@ export default function Chatbot() {
 
   return (
     <>
-      {/* Floating button */}
-      <motion.button
-        onClick={() => setOpen(prev => !prev)}
-        animate={{ y: [0, -3, 0] }}
-        transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
-        style={{
-          position: 'fixed', bottom: 100, left: 28, zIndex: 998,
-          width: 56, height: 56, borderRadius: '50%',
-          cursor: 'pointer',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          padding: 0, border: 'none', background: 'transparent',
-          boxShadow: '0 6px 24px rgba(0,0,0,0.15)',
-        }}
-        aria-label="OnesimeAI"
-      >
-        <img
-          src={asset('/images/logo/onesime_ai.png')}
-          alt="OnesimeAI"
-          style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%' }}
-        />
-      </motion.button>
+      {/* Floating button + label */}
+      <div style={{
+        position: 'fixed', bottom: 100, left: 28, zIndex: 998,
+        display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
+      }}>
+        <motion.button
+          onClick={() => setOpen(prev => !prev)}
+          animate={{ y: [0, -3, 0] }}
+          transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.95 }}
+          style={{
+            width: 56, height: 56, borderRadius: '50%',
+            cursor: 'pointer',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            padding: 0, border: 'none', background: 'transparent',
+            boxShadow: '0 6px 24px rgba(0,0,0,0.15)',
+          }}
+          aria-label="OnesimeAI"
+        >
+          <img
+            src={asset('/images/logo/onesime_ai.png')}
+            alt="OnesimeAI"
+            style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%' }}
+          />
+        </motion.button>
+        <span style={{
+          fontSize: '.55rem', fontWeight: 600, color: '#fff',
+          background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(4px)',
+          padding: '2px 6px', borderRadius: 6, letterSpacing: '0.05em',
+          whiteSpace: 'nowrap',
+        }}>
+          ONESIME_AI
+        </span>
+      </div>
 
       <AnimatePresence>
         {open && (
