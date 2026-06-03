@@ -5,6 +5,8 @@ import { asset } from '../utils/asset'
 import { ONESIME } from '../data/content'
 import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
 
+const BASE = import.meta.env.BASE_URL?.replace(/\/$/, '') || ''
+
 const categories = [...new Set(ONESIME.projects.map(p => p.category))]
 
 const categoryIcons: Record<string, string> = {
@@ -271,7 +273,7 @@ function GalleryCard({ category, items }: { category: string; items: typeof ONES
           <AnimatePresence mode="wait">
             <motion.img
               key={current}
-              src={asset(items[current].src)}
+              src={BASE + items[current].src}
               alt={items[current].title}
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -371,7 +373,7 @@ function GalleryCard({ category, items }: { category: string; items: typeof ONES
             <AnimatePresence mode="wait">
               <motion.img
                 key={modalIndex}
-                src={asset(items[modalIndex].src)}
+                src={BASE + items[modalIndex].src}
                 alt={items[modalIndex].title}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}

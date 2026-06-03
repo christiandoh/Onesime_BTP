@@ -188,7 +188,7 @@ export default function Contact() {
                   </label>
                   <input type="text" name="name" required placeholder="Ex: Kouadio Alain" style={{
                     padding: '12px 16px', border: '1.5px solid #E0E0E0', borderRadius: 10,
-                    fontFamily: 'Times New Roman, Times, serif', fontSize: '.85rem', width: '100%',
+                    fontFamily: 'Poppins, sans-serif', fontSize: '.85rem', width: '100%',
                     outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.3s',
                   }} onFocus={e => e.target.style.borderColor = '#E30613'}
                     onBlur={e => e.target.style.borderColor = '#E0E0E0'} />
@@ -199,7 +199,7 @@ export default function Contact() {
                   </label>
                   <input type="tel" name="phone" required placeholder="07 XX XX XX XX" style={{
                     padding: '12px 16px', border: '1.5px solid #E0E0E0', borderRadius: 10,
-                    fontFamily: 'Times New Roman, Times, serif', fontSize: '.85rem', width: '100%',
+                    fontFamily: 'Poppins, sans-serif', fontSize: '.85rem', width: '100%',
                     outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.3s',
                   }} onFocus={e => e.target.style.borderColor = '#E30613'}
                     onBlur={e => e.target.style.borderColor = '#E0E0E0'} />
@@ -212,7 +212,7 @@ export default function Contact() {
                 </label>
                 <input type="email" name="email" placeholder="exemple@email.com" style={{
                   padding: '12px 16px', border: '1.5px solid #E0E0E0', borderRadius: 10,
-                  fontFamily: 'Times New Roman, Times, serif', fontSize: '.85rem', width: '100%',
+                  fontFamily: 'Poppins, sans-serif', fontSize: '.85rem', width: '100%',
                   outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.3s',
                 }} onFocus={e => e.target.style.borderColor = '#E30613'}
                   onBlur={e => e.target.style.borderColor = '#E0E0E0'} />
@@ -225,7 +225,7 @@ export default function Contact() {
                   </label>
                   <select name="material" required style={{
                     padding: '12px 16px', border: '1.5px solid #E0E0E0', borderRadius: 10,
-                    fontFamily: 'Times New Roman, Times, serif', fontSize: '.85rem', width: '100%',
+                    fontFamily: 'Poppins, sans-serif', fontSize: '.85rem', width: '100%',
                     outline: 'none', boxSizing: 'border-box',
                   }}>
                     <option value="">-- Sélectionnez --</option>
@@ -242,7 +242,7 @@ export default function Contact() {
                   </label>
                   <input type="text" name="quantity" placeholder="Ex: 10 m³ ou 5 tonnes" style={{
                     padding: '12px 16px', border: '1.5px solid #E0E0E0', borderRadius: 10,
-                    fontFamily: 'Times New Roman, Times, serif', fontSize: '.85rem', width: '100%',
+                    fontFamily: 'Poppins, sans-serif', fontSize: '.85rem', width: '100%',
                     outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.3s',
                   }} onFocus={e => e.target.style.borderColor = '#E30613'}
                     onBlur={e => e.target.style.borderColor = '#E0E0E0'} />
@@ -256,7 +256,7 @@ export default function Contact() {
                   </label>
                   <input type="text" name="location" required placeholder="Ex: Cocody, Abidjan" style={{
                     padding: '12px 16px', border: '1.5px solid #E0E0E0', borderRadius: 10,
-                    fontFamily: 'Times New Roman, Times, serif', fontSize: '.85rem', width: '100%',
+                    fontFamily: 'Poppins, sans-serif', fontSize: '.85rem', width: '100%',
                     outline: 'none', boxSizing: 'border-box', transition: 'border-color 0.3s',
                   }} onFocus={e => e.target.style.borderColor = '#E30613'}
                     onBlur={e => e.target.style.borderColor = '#E0E0E0'} />
@@ -267,7 +267,7 @@ export default function Contact() {
                   </label>
                   <select name="urgency" style={{
                     padding: '12px 16px', border: '1.5px solid #E0E0E0', borderRadius: 10,
-                    fontFamily: 'Times New Roman, Times, serif', fontSize: '.85rem', width: '100%',
+                    fontFamily: 'Poppins, sans-serif', fontSize: '.85rem', width: '100%',
                     outline: 'none', boxSizing: 'border-box',
                   }}>
                     <option value="Normale">Normale</option>
@@ -283,7 +283,7 @@ export default function Contact() {
                 </label>
                 <textarea name="message" placeholder="Précisez vos besoins, dates souhaitées, etc..." rows={4} style={{
                   padding: '12px 16px', border: '1.5px solid #E0E0E0', borderRadius: 10,
-                  fontFamily: 'Times New Roman, Times, serif', fontSize: '.85rem', width: '100%',
+                  fontFamily: 'Poppins, sans-serif', fontSize: '.85rem', width: '100%',
                   outline: 'none', boxSizing: 'border-box', resize: 'vertical',
                   minHeight: 90, transition: 'border-color 0.3s',
                 }} onFocus={e => e.target.style.borderColor = '#E30613'}
@@ -299,7 +299,7 @@ export default function Contact() {
                   border: 'none', borderRadius: 12, fontWeight: 700, fontSize: '.95rem',
                   cursor: 'pointer', display: 'flex', alignItems: 'center',
                   justifyContent: 'center', gap: 8,
-                  fontFamily: 'Times New Roman, Times, serif',
+                  fontFamily: 'Poppins, sans-serif',
                 }}
               >
                 <Icon name="Send" size={18} />

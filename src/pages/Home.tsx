@@ -142,7 +142,7 @@ export default function Home() {
         <div style={{
           position: 'relative', zIndex: 3,
           display: 'flex', flexDirection: 'column', alignItems: 'center',
-          gap: 16, marginTop: 24,
+          gap: 16,
         }}>
           <motion.img
             src={asset('/images/logo/logo.png')}
@@ -176,6 +176,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.6 }}
             style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}
+            className="hero-buttons-mobile"
           >
             <Link to="/contact" style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -435,6 +436,7 @@ export default function Home() {
           .nav-desktop { display: none !important; }
           .hamburger-btn { display: flex !important; }
           .home-features-grid { grid-template-columns: 1fr !important; }
+          .hero-buttons-mobile { margin-top: 60px !important; }
         }
       `}</style>
     </>

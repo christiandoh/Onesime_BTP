@@ -9,7 +9,7 @@
   --color-gray-dark: #374151;
   --color-gray-mid: #6B7280;
   --color-gray-lt: #F5F5F5;
-  --font-poppins: 'Times New Roman', Times, serif;
+  --font-poppins: 'Poppins', sans-serif;
 }
 
 html {
@@ -17,7 +17,7 @@ html {
 }
 
 body {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Poppins', sans-serif;
   color: var(--color-black);
   background: #FFFFFF;
   overflow-x: hidden;
