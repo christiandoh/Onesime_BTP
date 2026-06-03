@@ -1,6 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/christiandoh/Onesime_BTP/main/public/images/logo/logo.png" alt="Onesime BTP" height="80" />
-  <h1>Onesime BTP</h1>
+  <h1>🏗️ <span style="color:#E30613">onesime</span>BTP</h1>
   <p><strong>Livraison de sable, gravier & latérite — Abidjan, Côte d'Ivoire</strong></p>
   <p>
     <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
