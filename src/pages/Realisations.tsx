@@ -271,7 +271,7 @@ function GalleryCard({ category, items }: { category: string; items: typeof ONES
           <AnimatePresence mode="wait">
             <motion.img
               key={current}
-              src={items[current].src}
+              src={asset(items[current].src)}
               alt={items[current].title}
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -371,7 +371,7 @@ function GalleryCard({ category, items }: { category: string; items: typeof ONES
             <AnimatePresence mode="wait">
               <motion.img
                 key={modalIndex}
-                src={items[modalIndex].src}
+                src={asset(items[modalIndex].src)}
                 alt={items[modalIndex].title}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
