@@ -89,7 +89,7 @@ export default function Realisations() {
                   whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
                 >
                   <motion.img
-                    src={project.image}
+                    src={asset(project.image)}
                     alt={project.title}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     whileHover={{ scale: 1.08 }}
@@ -179,7 +179,7 @@ export default function Realisations() {
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <motion.img
-                    src={t.image}
+                    src={asset(t.image)}
                     alt={t.name}
                     whileHover={{ scale: 1.1, borderColor: '#F4C400' }}
                     style={{ width: 42, height: 42, borderRadius: '50%', objectFit: 'cover', border: '2px solid transparent', transition: 'border-color 0.3s' }}

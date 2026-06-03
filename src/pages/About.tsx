@@ -339,7 +339,7 @@ function OrbitalClients() {
                 }}
               >
                 <img
-                  src={c.logo}
+                  src={asset(c.logo)}
                   alt={c.name}
                   style={{
                     maxWidth: '100%', maxHeight: '100%',
