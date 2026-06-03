@@ -319,7 +319,7 @@ export const ONESIME = {
     // Sécurité Incendie
     { title: 'Détecteur de Fumée – Installation', category: 'Sécurité Incendie', location: 'Abidjan, Plateau', image: '/images/securite_incendi/detecteur_de_fumer.jpg' },
     { title: 'Extincteur – Équipement Sécurité', category: 'Sécurité Incendie', location: 'Abidjan, Cocody', image: '/images/securite_incendi/inxtincteur.jpg' },
-    { title: 'Système d\'Alarme Incendie – Bâtiment', category: 'Sécurité Incendie', location: 'Abidjan, Zone 3', image: '/images/securite_incendi/yangın alarm sistemleri izmir.jpg' },
+    { title: 'Système d\'Alarme Incendie – Bâtiment', category: 'Sécurité Incendie', location: 'Abidjan, Zone 3', image: '/images/securite_incendi/systeme_alarme_incendie.jpg' },
   ] as Project[],
 
   gallery: [
@@ -343,7 +343,7 @@ export const ONESIME = {
     { src: '/images/fourniture_materiaux/tuyeau.jpg', category: 'Fourniture', title: 'Tuyauterie BTP' },
     { src: '/images/securite_incendi/detecteur_de_fumer.jpg', category: 'Sécurité', title: 'Détecteur de fumée' },
     { src: '/images/securite_incendi/inxtincteur.jpg', category: 'Sécurité', title: 'Extincteur incendie' },
-    { src: '/images/securite_incendi/yangın alarm sistemleri izmir.jpg', category: 'Sécurité', title: "Système d'alarme incendie" },
+    { src: '/images/securite_incendi/systeme_alarme_incendie.jpg', category: 'Sécurité', title: "Système d'alarme incendie" },
   ],
 
   actualites: [
