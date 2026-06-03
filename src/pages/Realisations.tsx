@@ -1,26 +1,44 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useMemo } from 'react'
+import { motion } from 'framer-motion'
 import ZoomableImage from '../components/ZoomableImage'
 import { asset } from '../utils/asset'
 import { ONESIME } from '../data/content'
 import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
 
-const categories = ['Tous', ...new Set(ONESIME.projects.map(p => p.category))]
+const categories = [...new Set(ONESIME.projects.map(p => p.category))]
+
+const categoryIcons: Record<string, string> = {
+  'Génie Civil': '🏗️',
+  'Gros Œuvre': '🧱',
+  'Électricité': '⚡',
+  'Éclairage': '💡',
+  'Domotique': '🏠',
+  'Fourniture': '🚚',
+  'Transport': '🚛',
+}
 
 export default function Realisations() {
-  const [filter, setFilter] = useState('Tous')
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
 
-  const filtered = filter === 'Tous' ? ONESIME.projects : ONESIME.projects.filter(p => p.category === filter)
+  const grouped = useMemo(() => {
+    const groups: Record<string, typeof ONESIME.projects> = {}
+    categories.forEach(cat => {
+      groups[cat] = ONESIME.projects.filter(p => p.category === cat)
+    })
+    return groups
+  }, [])
+
+  const filteredCategories = activeCategory
+    ? categories.filter(c => c === activeCategory)
+    : categories
 
   return (
     <>
       <section style={{
         paddingTop: 140, paddingBottom: 60,
         background: `linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url(${asset('/images/image_header.jpg')})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        textAlign: 'center',
-        position: 'relative',
+        backgroundSize: 'cover', backgroundPosition: 'center',
+        textAlign: 'center', position: 'relative',
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(227,6,19,.08) 0%, transparent 70%)' }} />
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 1 }}>
@@ -31,10 +49,7 @@ export default function Realisations() {
               fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase',
               marginBottom: 14,
             }}>Réalisations</span>
-            <h1 style={{
-              fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800,
-              color: 'white', lineHeight: 1.2,
-            }}>
+            <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: 'white', lineHeight: 1.2 }}>
               Nos <span style={{ color: '#E30613' }}>projets</span>
             </h1>
           </motion.div>
@@ -43,89 +58,109 @@ export default function Realisations() {
 
       <section style={{ padding: '60px 0', background: 'white' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
+          {/* Filter chips */}
           <motion.div
             variants={slideUp}
-            initial="hidden"
-            whileInView="visible"
+            initial="hidden" whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
-            style={{ display: 'flex', gap: 10, marginBottom: 40, flexWrap: 'wrap', justifyContent: 'center' }}
+            style={{ display: 'flex', gap: 10, marginBottom: 48, flexWrap: 'wrap', justifyContent: 'center' }}
           >
+            <button
+              onClick={() => setActiveCategory(null)}
+              style={{
+                padding: '8px 20px', borderRadius: 99, border: 'none',
+                background: !activeCategory ? '#E30613' : '#f0f0f0',
+                color: !activeCategory ? 'white' : '#374151',
+                fontWeight: 600, fontSize: '.85rem', cursor: 'pointer',
+              }}
+            >
+              Tous
+            </button>
             {categories.map(cat => (
-              <motion.button
+              <button
                 key={cat}
-                onClick={() => setFilter(cat)}
-                whileHover={{ scale: 1.06 }}
-                whileTap={{ scale: 0.95 }}
+                onClick={() => setActiveCategory(cat)}
                 style={{
                   padding: '8px 20px', borderRadius: 99, border: 'none',
-                  background: filter === cat ? '#E30613' : '#f0f0f0',
-                  color: filter === cat ? 'white' : '#374151',
+                  background: activeCategory === cat ? '#E30613' : '#f0f0f0',
+                  color: activeCategory === cat ? 'white' : '#374151',
                   fontWeight: 600, fontSize: '.85rem', cursor: 'pointer',
-                  transition: 'background 0.3s',
+                  display: 'flex', alignItems: 'center', gap: 6,
                 }}
               >
+                <span>{categoryIcons[cat] || '📋'}</span>
                 {cat}
-              </motion.button>
+              </button>
             ))}
           </motion.div>
 
-          <motion.div layout style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 24 }}>
-            <AnimatePresence mode="popLayout">
-              {filtered.map(project => (
-                <motion.div
-                  key={project.title}
-                  layout
-                  initial={{ opacity: 0, scale: 0.8, y: 30 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.4 }}
-                  style={{
-                    borderRadius: 20, overflow: 'hidden',
-                    border: '1px solid #eee',
-                    position: 'relative',
-                    cursor: 'pointer',
-                    height: 300,
-                  }}
-                  whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
-                >
-                  <motion.img
-                    src={asset(project.image)}
-                    alt={project.title}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ duration: 0.5 }}
-                  />
+          {/* Projects grouped by category */}
+          {filteredCategories.map(cat => (
+            <motion.div
+              key={cat}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5 }}
+              style={{ marginBottom: 48 }}
+            >
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20,
+                paddingBottom: 12, borderBottom: '2px solid #eee',
+              }}>
+                <span style={{ fontSize: '1.4rem' }}>{categoryIcons[cat] || '📋'}</span>
+                <h2 style={{
+                  fontSize: '1.2rem', fontWeight: 700, margin: 0, color: '#111',
+                  letterSpacing: '0.02em',
+                }}>
+                  {cat}
+                </h2>
+                <span style={{
+                  background: '#E30613', color: 'white', padding: '2px 10px',
+                  borderRadius: 99, fontSize: '.72rem', fontWeight: 600,
+                }}>
+                  {grouped[cat].length} projet{grouped[cat].length > 1 ? 's' : ''}
+                </span>
+              </div>
+
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden" whileInView="visible"
+                viewport={{ once: true }}
+                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 20 }}
+              >
+                {grouped[cat].map(project => (
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    key={project.title}
+                    variants={itemSlideUp}
                     style={{
+                      borderRadius: 16, overflow: 'hidden',
+                      border: '1px solid #eee', position: 'relative',
+                      cursor: 'pointer', height: 260,
+                    }}
+                    whileHover={{ y: -6, boxShadow: '0 16px 32px rgba(0,0,0,0.1)' }}
+                  >
+                    <img
+                      src={asset(project.image)}
+                      alt={project.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
+                      onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.08)')}
+                      onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}
+                    />
+                    <div style={{
                       position: 'absolute', inset: 0,
                       background: 'linear-gradient(transparent 40%, rgba(0,0,0,0.85))',
                       display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
-                      padding: 24,
-                    }}
-                  >
-                    <motion.span
-                      initial={{ x: -20, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.1 }}
-                      style={{
-                        background: '#E30613', color: 'white', padding: '3px 10px',
-                        borderRadius: 99, fontSize: '.72rem', fontWeight: 600,
-                        alignSelf: 'flex-start', marginBottom: 8,
-                      }}
-                    >
-                      {project.category}
-                    </motion.span>
-                    <h3 style={{ color: 'white', fontSize: '1rem', fontWeight: 700 }}>{project.title}</h3>
-                    <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '.78rem' }}>{project.location}</p>
+                      padding: 20,
+                    }}>
+                      <h3 style={{ color: 'white', fontSize: '.95rem', fontWeight: 700, marginBottom: 2 }}>{project.title}</h3>
+                      <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '.76rem', margin: 0 }}>{project.location}</p>
+                    </div>
                   </motion.div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -209,36 +244,47 @@ export default function Realisations() {
               Notre <span style={{ color: '#E30613' }}>galerie</span>
             </h2>
           </motion.div>
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: 16 }}
-          >
-            {ONESIME.gallery.map(g => (
+
+          {['Chantier', 'Engins', 'Construction', 'Équipe', 'Infrastructure', 'Architecture', 'Ingénierie', 'Outillage'].map(gc => {
+            const items = ONESIME.gallery.filter(g => g.category === gc)
+            if (items.length === 0) return null
+            return (
               <motion.div
-                key={g.src}
-                variants={itemSlideUp}
-                style={{ borderRadius: 16, overflow: 'hidden', position: 'relative', height: 220, cursor: 'pointer' }}
-                whileHover={{ y: -4, boxShadow: '0 12px 28px rgba(0,0,0,0.12)' }}
+                key={gc}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5 }}
+                style={{ marginBottom: 36 }}
               >
-                <ZoomableImage src={g.src} alt={g.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{
-                  position: 'absolute', bottom: 0, left: 0, right: 0,
-                  background: 'linear-gradient(transparent, rgba(0,0,0,0.75))',
-                  padding: '20px 16px 12px',
+                <h3 style={{
+                  fontSize: '1rem', fontWeight: 700, marginBottom: 16, color: '#374151',
+                  borderLeft: '3px solid #E30613', paddingLeft: 12,
                 }}>
-                  <span style={{
-                    background: '#E30613', color: 'white', padding: '2px 8px',
-                    borderRadius: 99, fontSize: '.65rem', fontWeight: 600,
-                    display: 'inline-block', marginBottom: 4,
-                  }}>{g.category}</span>
-                  <p style={{ color: 'white', fontSize: '.82rem', fontWeight: 600, margin: 0 }}>{g.title}</p>
+                  {gc}
+                </h3>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 14 }}>
+                  {items.map(g => (
+                    <motion.div
+                      key={g.src}
+                      variants={itemSlideUp}
+                      style={{ borderRadius: 16, overflow: 'hidden', position: 'relative', height: 200, cursor: 'pointer' }}
+                      whileHover={{ y: -4, boxShadow: '0 12px 28px rgba(0,0,0,0.12)' }}
+                    >
+                      <ZoomableImage src={g.src} alt={g.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      <div style={{
+                        position: 'absolute', bottom: 0, left: 0, right: 0,
+                        background: 'linear-gradient(transparent, rgba(0,0,0,0.75))',
+                        padding: '20px 16px 10px',
+                      }}>
+                        <p style={{ color: 'white', fontSize: '.8rem', fontWeight: 600, margin: 0 }}>{g.title}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </motion.div>
-            ))}
-          </motion.div>
+            )
+          })}
         </div>
       </section>
 
