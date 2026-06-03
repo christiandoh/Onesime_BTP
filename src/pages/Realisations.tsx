@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import ZoomableImage from '../components/ZoomableImage'
 import Icon from '../components/Icon'
@@ -234,7 +234,7 @@ export default function Realisations() {
       {/* Gallery */}
       <section style={{ padding: '80px 0', background: '#F9F9F9' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
-          <motion.div variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} style={{ textAlign: 'center', marginBottom: 50 }}>
+          <motion.div variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} style={{ textAlign: 'center', marginBottom: 40 }}>
             <span style={{
               display: 'inline-block', background: '#F4C400', color: '#111',
               padding: '5px 14px', borderRadius: 99, fontSize: '.72rem',
@@ -256,33 +256,21 @@ export default function Realisations() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5 }}
-                style={{ marginBottom: 36 }}
+                style={{ marginBottom: 28 }}
               >
-                <h3 style={{
-                  fontSize: '1rem', fontWeight: 700, marginBottom: 16, color: '#374151',
-                  borderLeft: '3px solid #E30613', paddingLeft: 12,
+                <div style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  marginBottom: 12,
                 }}>
-                  {gc}
-                </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: 14 }}>
-                  {items.map(g => (
-                    <motion.div
-                      key={g.src}
-                      variants={itemSlideUp}
-                      style={{ borderRadius: 16, overflow: 'hidden', position: 'relative', height: 200, cursor: 'pointer' }}
-                      whileHover={{ y: -4, boxShadow: '0 12px 28px rgba(0,0,0,0.12)' }}
-                    >
-                      <ZoomableImage src={g.src} alt={g.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                      <div style={{
-                        position: 'absolute', bottom: 0, left: 0, right: 0,
-                        background: 'linear-gradient(transparent, rgba(0,0,0,0.75))',
-                        padding: '20px 16px 10px',
-                      }}>
-                        <p style={{ color: 'white', fontSize: '.8rem', fontWeight: 600, margin: 0 }}>{g.title}</p>
-                      </div>
-                    </motion.div>
-                  ))}
+                  <h3 style={{
+                    fontSize: '1rem', fontWeight: 700, color: '#374151', margin: 0,
+                    borderLeft: '3px solid #E30613', paddingLeft: 12,
+                  }}>
+                    {gc} <span style={{ fontWeight: 400, fontSize: '.8rem', color: '#9CA3AF' }}>({items.length})</span>
+                  </h3>
                 </div>
+
+                <Carousel items={items} />
               </motion.div>
             )
           })}
@@ -297,5 +285,73 @@ export default function Realisations() {
         }
       `}</style>
     </>
+  )
+}
+
+function Carousel({ items }: { items: typeof ONESIME.gallery }) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [showLeft, setShowLeft] = useState(false)
+  const [showRight, setShowRight] = useState(true)
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current
+    if (!el) return
+    setShowLeft(el.scrollLeft > 10)
+    setShowRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 10)
+  }, [])
+
+  const scroll = (dir: 'left' | 'right') => {
+    const el = scrollRef.current
+    if (!el) return
+    const amount = el.clientWidth * 0.6
+    el.scrollBy({ left: dir === 'left' ? -amount : amount, behavior: 'smooth' })
+    setTimeout(checkScroll, 300)
+  }
+
+  return (
+    <div style={{ position: 'relative' }}>
+      {showLeft && (
+        <button onClick={() => scroll('left')} style={{
+          position: 'absolute', left: 0, top: 0, bottom: 0, zIndex: 2,
+          width: 40, border: 'none', background: 'linear-gradient(90deg, rgba(249,249,249,0.95), transparent)',
+          cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'flex-start', paddingLeft: 4,
+        }}>
+          <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+          </div>
+        </button>
+      )}
+      {showRight && (
+        <button onClick={() => scroll('right')} style={{
+          position: 'absolute', right: 0, top: 0, bottom: 0, zIndex: 2,
+          width: 40, border: 'none', background: 'linear-gradient(-90deg, rgba(249,249,249,0.95), transparent)',
+          cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: 4,
+        }}>
+          <div style={{ width: 32, height: 32, borderRadius: '50%', background: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </button>
+      )}
+      <div ref={scrollRef} onScroll={checkScroll} style={{
+        display: 'flex', gap: 12, overflowX: 'auto', scrollSnapType: 'x mandatory',
+        paddingBottom: 4, scrollbarWidth: 'none',
+      }}>
+        {items.map(g => (
+          <div key={g.src} style={{
+            flex: '0 0 auto', width: 240, height: 180, borderRadius: 14,
+            overflow: 'hidden', position: 'relative', cursor: 'pointer', scrollSnapAlign: 'start',
+          }}>
+            <ZoomableImage src={g.src} alt={g.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <div style={{
+              position: 'absolute', bottom: 0, left: 0, right: 0,
+              background: 'linear-gradient(transparent, rgba(0,0,0,0.75))',
+              padding: '20px 12px 8px',
+            }}>
+              <p style={{ color: 'white', fontSize: '.78rem', fontWeight: 600, margin: 0 }}>{g.title}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
