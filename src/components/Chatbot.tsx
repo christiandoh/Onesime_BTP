@@ -175,18 +175,23 @@ export default function Chatbot() {
         style={{
           position: 'fixed', bottom: 100, left: 28, zIndex: 998,
           width: 56, height: 56, borderRadius: '50%',
-          background: 'transparent',
-          border: 'none',
+          background: '#111',
+          border: '2px solid rgba(255,255,255,0.1)',
           cursor: 'pointer',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          padding: 0,
+          padding: 10,
+          boxShadow: '0 6px 24px rgba(0,0,0,0.3)',
         }}
         aria-label="OnesimeAI"
       >
         <img
           src={asset('/images/logo/Onesim_AI.png')}
           alt="OnesimeAI"
-          style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '50%' }}
+          style={{
+            width: '100%', height: '100%', objectFit: 'contain',
+            mixBlendMode: 'multiply',
+            filter: 'brightness(10)',
+          }}
         />
       </motion.button>
 
