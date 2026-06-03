@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 import { ONESIME } from '../data/content'
+import { waUrl } from '../utils/asset'
 
 export default function Layout() {
   const { pathname } = useLocation()
@@ -25,7 +26,7 @@ export default function Layout() {
 
       {/* WhatsApp Float */}
       <a
-        href={`https://wa.me/${ONESIME.contact.whatsapp}`}
+        href={waUrl(ONESIME.contact.whatsapp)}
         target="_blank"
         rel="noopener noreferrer"
         style={{

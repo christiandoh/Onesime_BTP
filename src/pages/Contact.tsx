@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import Icon from '../components/Icon'
-import { asset } from '../utils/asset'
+import { asset, waUrl } from '../utils/asset'
 import { ONESIME } from '../data/content'
 import { slideUp, slideLeft, slideRight } from '../data/animations'
 
@@ -114,7 +114,7 @@ export default function Contact() {
                   Appeler
                 </motion.a>
                 <motion.a
-                  href={`https://wa.me/${ONESIME.contact.whatsapp}`}
+                  href={waUrl(ONESIME.contact.whatsapp)}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}

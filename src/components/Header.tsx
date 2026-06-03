@@ -2,7 +2,8 @@ import { useState, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Icon from './Icon'
-import { asset } from '../utils/asset'
+import { asset, waUrl } from '../utils/asset'
+import { ONESIME } from '../data/content'
 
 const navLinks = [
   { label: 'Accueil', path: '/', icon: 'Home' },
@@ -228,7 +229,7 @@ export default function Header() {
               <div style={{ display: 'flex', gap: 12, marginTop: 20, justifyContent: 'center' }}>
                 <a href="https://www.facebook.com/share/1EtgM2wzhy/" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '.75rem' }}>Facebook</a>
                 <span style={{ color: 'rgba(255,255,255,0.15)' }}>|</span>
-                <a href={`https://wa.me/2250709450970`} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '.75rem' }}>WhatsApp</a>
+                <a href={waUrl(ONESIME.contact.whatsapp)} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255,255,255,0.3)', fontSize: '.75rem' }}>WhatsApp</a>
               </div>
             </motion.div>
           </>
