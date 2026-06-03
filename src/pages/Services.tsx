@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
 import ZoomableImage from '../components/ZoomableImage'
+import { asset } from '../utils/asset'
 import { ONESIME } from '../data/content'
 import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
 
@@ -10,7 +11,7 @@ export default function Services() {
     <>
       <section style={{
         paddingTop: 140, paddingBottom: 60,
-        background: 'linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url(/images/image_header.jpg)',
+        background: `linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url(${asset('/images/image_header.jpg')})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         textAlign: 'center',

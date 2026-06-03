@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Icon from './Icon'
 import { ONESIME } from '../data/content'
+import { asset } from '../utils/asset'
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
             {/* Brand */}
             <div>
               <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none', marginBottom: 10 }}>
-                <img src="/images/logo/logo.png" alt="Onesime BTP" style={{ height: 36, width: 'auto' }} />
+                <img src={asset('/images/logo/logo.png')} alt="Onesime BTP" style={{ height: 36, width: 'auto' }} />
               </Link>
               <p style={{ fontSize: '.78rem', lineHeight: 1.6, marginBottom: 12, color: 'rgba(255,255,255,.42)', maxWidth: 280 }}>
                 Votre partenaire de confiance pour la fourniture de sable, gravier et latérite à Abidjan et en Côte d'Ivoire.

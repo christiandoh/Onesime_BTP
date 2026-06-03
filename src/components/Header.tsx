@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Icon from './Icon'
+import { asset } from '../utils/asset'
 
 const navLinks = [
   { label: 'Accueil', path: '/', icon: 'Home' },
@@ -68,7 +69,7 @@ export default function Header() {
           height: 64,
         }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-            <img src="/images/logo/logo.png" alt="Onesime BTP" style={{ height: 38, width: 'auto' }} />
+            <img src={asset('/images/logo/logo.png')} alt="Onesime BTP" style={{ height: 38, width: 'auto' }} />
           </Link>
 
           {/* Desktop nav */}
@@ -167,7 +168,7 @@ export default function Header() {
             >
               {/* Logo in drawer */}
               <div style={{ marginBottom: 36, paddingBottom: 24, borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-                <img src="/images/logo/logo.png" alt="Onesime BTP" style={{ height: 32, width: 'auto' }} />
+                <img src={asset('/images/logo/logo.png')} alt="Onesime BTP" style={{ height: 32, width: 'auto' }} />
               </div>
 
               {/* Nav links */}

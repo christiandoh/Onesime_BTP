@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Icon from '../components/Icon'
+import { asset } from '../utils/asset'
 import { ONESIME } from '../data/content'
 import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
 
@@ -69,7 +70,7 @@ export default function Home() {
     <>
       <section style={{
         height: '100dvh',
-        background: 'linear-gradient(135deg, rgba(0,0,0,0.82), rgba(0,0,0,0.65)), url(/images/image_header.jpg)',
+        background: `linear-gradient(135deg, rgba(0,0,0,0.82), rgba(0,0,0,0.65)), url(${asset('/images/image_header.jpg')})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         position: 'relative', overflow: 'hidden',
@@ -122,7 +123,7 @@ export default function Home() {
                   }}
                 >
                   <img
-                    src={item.src}
+                    src={asset(item.src)}
                     alt={item.label}
                     loading="lazy"
                     style={{
@@ -144,7 +145,7 @@ export default function Home() {
           gap: 16, marginTop: 24,
         }}>
           <motion.img
-            src="/images/logo/logo.png"
+            src={asset('/images/logo/logo.png')}
             alt="Onesime BTP"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -392,7 +393,7 @@ export default function Home() {
       {/* CTA */}
       <section style={{
         padding: '60px 0',
-        background: 'linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.75)), url(/images/image_header.jpg)',
+        background: `linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.75)), url(${asset('/images/image_header.jpg')})`,
         backgroundSize: 'cover', backgroundPosition: 'center',
         textAlign: 'center', position: 'relative',
       }}>

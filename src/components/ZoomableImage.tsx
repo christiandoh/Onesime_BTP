@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { asset } from '../utils/asset'
 
 export default function ZoomableImage({ src, alt, style, className, onMouseOver, onMouseOut, loading = 'lazy' }: {
   src: string
@@ -11,11 +12,12 @@ export default function ZoomableImage({ src, alt, style, className, onMouseOver,
   loading?: 'lazy' | 'eager'
 }) {
   const [open, setOpen] = useState(false)
+  const imgSrc = asset(src)
 
   return (
     <>
       <img
-        src={src}
+        src={imgSrc}
         alt={alt}
         loading={loading}
         style={{ ...style, cursor: 'zoom-in' }}
@@ -57,7 +59,7 @@ export default function ZoomableImage({ src, alt, style, className, onMouseOver,
             </button>
 
             <motion.img
-              src={src}
+              src={imgSrc}
               alt={alt}
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
