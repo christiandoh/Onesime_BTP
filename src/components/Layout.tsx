@@ -39,22 +39,16 @@ export default function Layout() {
         style={{
           position: 'fixed', bottom: 28, right: 28, zIndex: 999,
           width: 56, height: 56, borderRadius: '50%',
-          background: '#25D366',
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          textDecoration: 'none', overflow: 'hidden',
-          padding: 10,
-          boxShadow: '0 6px 20px rgba(37,211,102,0.4)',
+          textDecoration: 'none', overflow: 'hidden', padding: 0,
+          boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
         }}
         title="WhatsApp"
       >
         <img
-          src={asset('/images/logo/WHATSSAP_logo.jpg')}
+          src={asset('/images/logo/whatsapp.png')}
           alt="WhatsApp"
-          style={{
-            width: '100%', height: '100%', objectFit: 'contain',
-            mixBlendMode: 'multiply',
-            filter: 'brightness(10)',
-          }}
+          style={{ width: '100%', height: '100%', objectFit: 'contain' }}
         />
       </motion.a>
     </>
