@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import ZoomableImage from '../components/ZoomableImage'
+import Icon from '../components/Icon'
 import { asset } from '../utils/asset'
 import { ONESIME } from '../data/content'
 import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
@@ -8,13 +9,13 @@ import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
 const categories = [...new Set(ONESIME.projects.map(p => p.category))]
 
 const categoryIcons: Record<string, string> = {
-  'Génie Civil': '🏗️',
-  'Gros Œuvre': '🧱',
-  'Électricité': '⚡',
-  'Éclairage': '💡',
-  'Domotique': '🏠',
-  'Fourniture': '🚚',
-  'Transport': '🚛',
+  'Génie Civil': 'Building2',
+  'Gros Œuvre': 'HardHat',
+  'Électricité': 'Zap',
+  'Éclairage': 'Sun',
+  'Domotique': 'Monitor',
+  'Fourniture': 'Truck',
+  'Transport': 'Truck',
 }
 
 export default function Realisations() {
@@ -88,7 +89,7 @@ export default function Realisations() {
                   display: 'flex', alignItems: 'center', gap: 6,
                 }}
               >
-                <span>{categoryIcons[cat] || '📋'}</span>
+                <Icon name={categoryIcons[cat] || 'Briefcase'} size={16} color={activeCategory === cat ? 'white' : '#374151'} />
                 {cat}
               </button>
             ))}
@@ -108,7 +109,7 @@ export default function Realisations() {
                 display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20,
                 paddingBottom: 12, borderBottom: '2px solid #eee',
               }}>
-                <span style={{ fontSize: '1.4rem' }}>{categoryIcons[cat] || '📋'}</span>
+                <Icon name={categoryIcons[cat] || 'Briefcase'} size={22} color="#E30613" />
                 <h2 style={{
                   fontSize: '1.2rem', fontWeight: 700, margin: 0, color: '#111',
                   letterSpacing: '0.02em',

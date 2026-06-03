@@ -7,6 +7,7 @@ import {
   Home, Image, Info,
   Zap, Sun, Monitor,
   FileText, CheckCircle,
+  HardHat,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
@@ -19,6 +20,7 @@ const iconMap: Record<string, LucideIcon> = {
   Home, Image, Info,
   Zap, Sun, Monitor,
   FileText, CheckCircle,
+  HardHat,
 }
 
 export default function Icon({ name, size = 22, strokeWidth = 1.5, color }: {
