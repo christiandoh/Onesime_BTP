@@ -316,6 +316,10 @@ export const ONESIME = {
     { title: 'Machine Caterpillar – Terrassement', category: 'Transport', location: 'Abidjan', image: '/images/transport_machine_BTP/MACHINE_CATEPILA.jpeg' },
     { title: 'Engin de Chantier – Nivellement', category: 'Transport', location: 'Abidjan', image: '/images/transport_machine_BTP/MACHINE1.jpeg' },
     { title: 'Pelleteuse – Excavation', category: 'Transport', location: 'Abidjan', image: '/images/transport_machine_BTP/paileteuse.jpg' },
+    // Sécurité Incendie
+    { title: 'Détecteur de Fumée – Installation', category: 'Sécurité Incendie', location: 'Abidjan, Plateau', image: '/images/securite_incendi/detecteur_de_fumer.jpg' },
+    { title: 'Extincteur – Équipement Sécurité', category: 'Sécurité Incendie', location: 'Abidjan, Cocody', image: '/images/securite_incendi/inxtincteur.jpg' },
+    { title: 'Système d\'Alarme Incendie – Bâtiment', category: 'Sécurité Incendie', location: 'Abidjan, Zone 3', image: '/images/securite_incendi/yangın alarm sistemleri izmir.jpg' },
   ] as Project[],
 
   gallery: [
@@ -337,6 +341,9 @@ export const ONESIME = {
     { src: '/images/fourniture_materiaux/materiaux.jpg', category: 'Fourniture', title: 'Matériaux de construction' },
     { src: '/images/fourniture_materiaux/ciment.jpg', category: 'Fourniture', title: 'Fourniture de ciment' },
     { src: '/images/fourniture_materiaux/tuyeau.jpg', category: 'Fourniture', title: 'Tuyauterie BTP' },
+    { src: '/images/securite_incendi/detecteur_de_fumer.jpg', category: 'Sécurité', title: 'Détecteur de fumée' },
+    { src: '/images/securite_incendi/inxtincteur.jpg', category: 'Sécurité', title: 'Extincteur incendie' },
+    { src: '/images/securite_incendi/yangın alarm sistemleri izmir.jpg', category: 'Sécurité', title: "Système d'alarme incendie" },
   ],
 
   actualites: [

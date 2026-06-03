@@ -15,6 +15,7 @@ const categoryIcons: Record<string, string> = {
   'Domotique': 'Monitor',
   'Fourniture': 'Truck',
   'Transport': 'Truck',
+  'Sécurité Incendie': 'BadgeCheck',
 }
 
 export default function Realisations() {
@@ -208,7 +209,7 @@ export default function Realisations() {
           </motion.div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 20 }}>
-            {['Chantier', 'Engins', 'Construction', 'Équipe', 'Infrastructure', 'Architecture', 'Ingénierie', 'Outillage', 'Fourniture'].map(gc => {
+            {['Chantier', 'Engins', 'Construction', 'Équipe', 'Infrastructure', 'Architecture', 'Ingénierie', 'Outillage', 'Fourniture', 'Sécurité'].map(gc => {
               const items = ONESIME.gallery.filter(g => g.category === gc)
               if (items.length === 0) return null
               return <GalleryCard key={gc} category={gc} items={items} />
