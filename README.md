@@ -1,73 +1,86 @@
-# React + TypeScript + Vite
+# <img src="/images/logo/logo.png" alt="Onesime BTP" height="40" /> Onesime BTP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site internet professionnel pour **Onesime BTP**, entreprise spécialisée dans la fourniture de sable, gravier, latérite et services BTP à Abidjan et en Côte d'Ivoire.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Aperçu
 
-## React Compiler
+| Page | Description |
+|------|-------------|
+| **Accueil** | Orbite 3D animée avec les 11 services, indicateur de scroll, statistiques |
+| **Services** | 11 prestations détaillées avec images, matériaux, processus en 4 étapes |
+| **Réalisations** | 16 projets filtrés par catégorie + galerie photos + témoignages |
+| **À propos** | Histoire, valeurs, stats, clients en orbite 3D |
+| **Contact** | Formulaire de devis avec envoi par email, WhatsApp, carte Google Maps |
+| **Actualités** | Articles et actualités de l'entreprise |
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies
 
-## Expanding the ESLint configuration
+| Stack | Version |
+|-------|---------|
+| React | 19.x |
+| TypeScript | 6.x |
+| Vite | 8.x |
+| Tailwind CSS | 4.x |
+| Framer Motion | \- |
+| Lucide React | \- |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Fonctionnalités
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Navigation** — Menu desktop + side drawer animé sur mobile
+- **Orbite 3D** — Images qui tournent autour du logo (accueil / partenaires)
+- **Lightbox** — Toutes les images cliquables en plein écran
+- **Formulaire** — Demande de devis avec envoi direct par email
+- **Vidéo** — Intégration Facebook Video
+- **WhatsApp** — Bouton flottant 7j/7
+- **Responsive** — Design adapté mobile, tablette et desktop
+- **SEO** — Balises meta, descriptions optimisées
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Accès : [http://localhost:5173](http://localhost:5173)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Build
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
+npm run preview
 ```
+
+## Structure
+
+```
+public/images/
+├── logo/            # Logo de l'entreprise
+├── services/        # Photos des services
+├── projects/        # Photos des projets
+├── gallery/         # Galerie photos
+├── electricite/     # Électricité
+├── eclairage/       # Éclairage public
+├── domotique/       # Domotique
+├── partenaire/      # Logos partenaires
+├── testimonials/    # Photos témoignages
+└── clients/         # Logos clients
+
+src/
+├── components/      # Composants réutilisables
+├── pages/           # Pages du site
+├── data/            # Données statiques
+└── hooks/           # Hooks personnalisés
+```
+
+## Contact
+
+- **Email** : secretariat@onesime-btp.com
+- **Téléphone** : +225 07 09 45 09 70
+- **WhatsApp** : +225 07 09 45 09 70
+
+---
+
+Développé avec ❤️ par [Christiandoh](https://github.com/christiandoh)
