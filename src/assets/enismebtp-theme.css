@@ -1,0 +1,233 @@
+/* ===========================================
+   OVERRIDE ENISIME BTP
+   Remplace le thème vert original par la
+   charte graphique ENISIME BTP (rouge/jaune/noir)
+   + typographie Montserrat/Inter
+   =========================================== */
+
+:root {
+  --color-primary: #E30613;
+  --color-primary-dark: #B8000D;
+  --color-secondary: #111111;
+  --color-yellow: #F4C400;
+  --color-yellow-light: #FFD84D;
+  --color-heading: #282828;
+  --color-body: #9b9b9b;
+  --color-white: #ffffff;
+  --color-gray: #f9f9f9;
+  --color-dark-bg: #161616;
+  --color-darker-bg: #121212;
+  --color-navbar-bg: #111111;
+  --border-color: #eaeaea;
+  --font-primary: "Inter", sans-serif;
+  --font-heading: "Montserrat", sans-serif;
+}
+
+/* Primary color overrides */
+.color-primary,
+a,
+.heading__subtitle,
+.counter-item .counter,
+.text__icon,
+.feature-item .feature__icon,
+.portfolio-item .portfolio__cat a,
+.footer-widget-about .btn,
+.contact__number i,
+.header-topbar .contact__list li a:not(.btn):hover,
+.nav__item .nav__item-link.active,
+.nav__item .nav__item-link:hover,
+.pricing-item .pricing__header .pricing__price,
+.btn__primary.btn__outlined,
+.btn__white {
+  color: var(--color-primary) !important;
+}
+
+a:hover {
+  color: var(--color-primary-dark) !important;
+}
+
+/* Background primary */
+.bg-primary,
+.btn__primary,
+.btn__primary:before,
+.btn__secondary:before,
+.btn__white:before,
+.nav__item .nav__item-link:before,
+.feature-item:before,
+.service-item:after,
+.btn__primary.btn__outlined:before,
+.footer-widget-about .btn .icon-arrow-right,
+.footer-widget-about .btn:hover .icon-arrow-right,
+.btn__custom .btn__secondary.btn__outlined.btn__custom:after,
+.features-layout2 .feature-item-custom,
+#scrollTopBtn,
+.slick-dots li.slick-active button,
+blockquote {
+  background-color: var(--color-primary) !important;
+}
+
+.btn__primary.btn__outlined:hover {
+  color: #ffffff !important;
+}
+
+.btn__primary .icon-arrow-right,
+.btn__primary .icon-arrow-left {
+  color: var(--color-primary) !important;
+}
+
+.btn__primary:hover .icon-arrow-right,
+.btn__primary:hover .icon-arrow-left {
+  color: var(--color-secondary) !important;
+}
+
+.btn__secondary:hover {
+  color: #ffffff !important;
+}
+
+.btn__secondary.btn__outlined:hover {
+  color: #ffffff !important;
+  background-color: var(--color-secondary) !important;
+}
+
+.btn__secondary.btn__outlined.btn__custom:after {
+  background-color: var(--color-primary) !important;
+}
+
+.btn__secondary.btn__outlined.btn__custom:hover {
+  border-color: var(--color-primary) !important;
+  background-color: var(--color-primary) !important;
+}
+
+/* Yellow accents */
+.color-yellow {
+  color: var(--color-yellow) !important;
+}
+
+/* Navbar background */
+.navbar,
+.is-sticky > .container,
+.is-sticky > .container-fluid {
+  background-color: var(--color-navbar-bg) !important;
+}
+
+/* Feature item custom */
+.features-layout2 .feature-item-custom {
+  background-color: var(--color-primary) !important;
+}
+
+/* Divider color */
+.divider__line:after {
+  background-color: var(--color-primary) !important;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Scroll to top */
+#scrollTopBtn:hover {
+  background-color: var(--color-secondary) !important;
+}
+
+/* Pricing item */
+.pricing-item .pricing__header {
+  background-color: var(--color-primary) !important;
+}
+
+/* Testimonial thumb hover */
+.testimonial-box .testimonial__thumb:hover {
+  border-color: var(--color-primary) !important;
+}
+
+/* Button outlined borders */
+.btn__primary.btn__outlined {
+  border-color: var(--color-primary) !important;
+}
+
+.btn__secondary.btn__outlined {
+  border-color: var(--color-secondary) !important;
+}
+
+/* White button hover */
+.btn__white:hover {
+  color: var(--color-primary) !important;
+}
+
+.btn__white .icon-arrow-right,
+.btn__white .icon-arrow-left {
+  color: #ffffff !important;
+  background-color: var(--color-primary) !important;
+}
+
+.btn__white:hover .icon-arrow-right,
+.btn__white:hover .icon-arrow-left {
+  color: var(--color-primary) !important;
+  background-color: #ffffff !important;
+}
+
+/* Portfolio */
+.portfolio-item .portfolio__title a:hover {
+  color: var(--color-primary) !important;
+}
+
+/* Service item hover */
+.service-item:hover .service__title {
+  color: var(--color-primary) !important;
+}
+
+/* ===========================================
+   TYPOGRAPHIE OVERRIDE
+   Remplace Rubik → Montserrat, Roboto → Inter
+   =========================================== */
+
+body,
+p,
+.heading__subtitle,
+.heading__desc,
+.slide__desc,
+.contact__list li,
+.testimonial__desc,
+.footer-widget-nav li a,
+.form-control,
+input,
+textarea,
+.btn {
+  font-family: "Inter", sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.heading__title,
+.slide__title,
+.service__title,
+.feature__title,
+.portfolio__title,
+.counter-item .counter,
+.footer-widget-title,
+.pricing__title,
+.nav__item .nav__item-link {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.oswald-Custom-font {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 700;
+}
+
+/* Color helper overrides */
+.color-yellow {
+  color: #F4C400 !important;
+}
+
+.bg-yellow {
+  background-color: #F4C400 !important;
+}
+
+.color-dark {
+  color: #111111 !important;
+}
+
+.bg-dark-override {
+  background-color: #111111 !important;
+}
