@@ -142,14 +142,14 @@ export const ONESIME = {
       title: 'Location Camions Benne',
       desc: 'Mise à disposition de camions benne pour le transport de matériaux sur vos chantiers.',
       icon: 'Truck',
-      image: '/images/services/service-8.jpeg',
+      image: '/images/transport_machine_BTP/camion_beine.jpg',
     },
     {
       id: 'gros-oeuvre',
       title: 'Gros Œuvre BTP',
       desc: 'Terrassement, fondations, maçonnerie et béton armé pour tous types de constructions.',
       icon: 'Building2',
-      image: '/images/services/batiment.jpeg',
+      image: '/images/chantier/chantier_bingerville.jpg',
     },
     {
       id: 'construction',
@@ -191,7 +191,7 @@ export const ONESIME = {
       title: 'Tous Corps d\'État (TCE)',
       desc: 'Coordination complète de tous les corps de métier pour vos projets : second œuvre, finitions, suivi et livraison clé en main.',
       icon: 'Building',
-      image: '/images/projects/project-26.jpeg',
+      image: '/images/projects/project-24.jpeg',
     },
   ] as Service[],
 
