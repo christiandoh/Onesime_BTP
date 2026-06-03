@@ -279,10 +279,10 @@ function OrbitalClients() {
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth
-      if (w <= 480) setRadius(130)
-      else if (w <= 768) setRadius(160)
-      else if (w <= 1024) setRadius(180)
-      else setRadius(200)
+      if (w <= 480) setRadius(140)
+      else if (w <= 768) setRadius(170)
+      else if (w <= 1024) setRadius(190)
+      else setRadius(210)
     }
     update()
     window.addEventListener('resize', update)
@@ -295,7 +295,7 @@ function OrbitalClients() {
   return (
     <div style={{
       position: 'relative',
-      height: 400,
+      height: 420,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       overflow: 'hidden',
     }}>
@@ -303,14 +303,14 @@ function OrbitalClients() {
       <div style={{
         position: 'absolute', inset: 0,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        perspective: '1000px',
+        perspective: '1200px',
         transformStyle: 'preserve-3d',
       }}>
         <div style={{
           position: 'absolute', inset: 0,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
           transformStyle: 'preserve-3d',
-          transform: 'rotateX(-20deg)',
+          transform: 'rotateX(-22deg)',
         }}>
           {logos.map((c, i) => {
             const theta = i * (twoPi / logos.length) + angle
@@ -318,7 +318,8 @@ function OrbitalClients() {
             const z = radius * Math.sin(theta)
             const depthNorm = (z + radius) / (2 * radius)
             const scale = 0.5 + 0.5 * depthNorm
-            const opacity = 0.2 + 0.8 * depthNorm
+            const opacity = 0.25 + 0.75 * depthNorm
+            const zIndex = Math.round(depthNorm * 100)
 
             return (
               <div
@@ -330,11 +331,12 @@ function OrbitalClients() {
                   height: 'clamp(50px, 8vw, 70px)',
                   transform: `translate3d(${x}px, 0px, ${z}px) scale(${scale})`,
                   opacity,
+                  zIndex,
                   willChange: 'transform',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  background: 'rgba(255,255,255,0.06)',
+                  background: 'rgba(255,255,255,0.07)',
                   borderRadius: 12,
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.1)',
                   padding: '8px 12px',
                 }}
               >
@@ -353,15 +355,15 @@ function OrbitalClients() {
         </div>
       </div>
 
-      {/* Center */}
+      {/* Center logo */}
       <div style={{
         width: 120, height: 120, borderRadius: '50%',
-        background: 'rgba(255,255,255,0.05)',
-        border: '2px solid rgba(255,255,255,0.1)',
+        background: 'radial-gradient(circle at center, rgba(255,255,255,0.08), rgba(255,255,255,0.02))',
+        border: '2px solid rgba(255,255,255,0.12)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
-        position: 'relative', zIndex: 2,
-        backdropFilter: 'blur(8px)',
+        position: 'relative', zIndex: 999,
         padding: 16,
+        boxShadow: '0 0 40px rgba(227,6,19,0.15)',
       }}>
         <img src={asset('/images/logo/logo.png')} alt="Onesime BTP" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
       </div>
