@@ -286,7 +286,7 @@ export const ONESIME = {
     { title: 'Lampadaires Intelligents', category: 'Éclairage', location: 'Abidjan, Marcory', image: '/images/eclairage/eclairage-3.jpeg' },
     // Domotique
     { title: 'Villa Domotique – Riviera', category: 'Domotique', location: 'Abidjan, Riviera', image: '/images/projects/project-36.jpeg' },
-    { title: 'Domotique – Villa Intelligente', category: 'Domotique', location: 'Abidjan, Marcory', image: '/images/projects/project-42.jpeg' },
+    { title: 'Domotique – Villa Intelligente', category: 'Domotique', location: 'Abidjan, Marcory', image: '/images/chantier/project-42.jpeg' },
     { title: 'Système Domotique Complet', category: 'Domotique', location: 'Abidjan, Cocody', image: '/images/domotique/domotique-1.jpeg' },
     { title: 'Automatisation Résidentielle', category: 'Domotique', location: 'Abidjan, Riviera', image: '/images/domotique/domotique-2.jpeg' },
     { title: 'Smart Home – Contrôle Centralisé', category: 'Domotique', location: 'Abidjan, Plateau', image: '/images/domotique/domotique-4.jpeg' },
@@ -298,7 +298,7 @@ export const ONESIME = {
     { title: 'Smart Home – Maison Connectée', category: 'Domotique', location: 'Abidjan, Yopougon', image: '/images/domotique/smart_Home.jpeg' },
     { title: 'Domotique – Contrôle Intelligent', category: 'Domotique', location: 'Abidjan, Bingerville', image: '/images/domotique/smart_home1.jpeg' },
     { title: 'Construction Immeuble R+8 – Plateau', category: 'Génie Civil', location: 'Abidjan, Plateau', image: '/images/projects/project-38.jpeg' },
-    { title: 'Terrassement – Zone d\'Activités', category: 'Gros Œuvre', location: 'Abidjan, PK24', image: '/images/projects/project-39.jpeg' },
+    { title: 'Terrassement – Zone d\'Activités', category: 'Gros Œuvre', location: 'Abidjan, PK24', image: '/images/chantier/project-39.jpeg' },
     // Chantiers
     { title: 'Chantier de Bingerville', category: 'Génie Civil', location: 'Bingerville', image: '/images/chantier/bingerville.jpg' },
     { title: 'Chantier Résidentiel – Bingerville', category: 'Gros Œuvre', location: 'Bingerville', image: '/images/chantier/chantier_bingerville.jpg' },
@@ -317,8 +317,6 @@ export const ONESIME = {
     { src: '/images/gallery/gallery-1.jpeg', category: 'Chantier', title: 'Grue au coucher du soleil' },
     { src: '/images/gallery/gallery-2.jpeg', category: 'Chantier', title: 'Échafaudage sur chantier' },
     { src: '/images/gallery/gallery-3.jpeg', category: 'Construction', title: 'Bâtiment en construction' },
-    { src: '/images/gallery/gallery-4.jpeg', category: 'Engins', title: 'Pelleteuse Caterpillar sur chantier' },
-    { src: '/images/gallery/gallery-5.jpeg', category: 'Engins', title: 'Engin de terrassement Caterpillar' },
     { src: '/images/gallery/gallery-6.jpeg', category: 'Infrastructure', title: 'Pont en construction' },
     { src: '/images/gallery/gallery-7.jpeg', category: 'Engins', title: 'Engin de chantier' },
     { src: '/images/gallery/gallery-8.jpeg', category: 'Architecture', title: 'Immeuble moderne' },
