@@ -272,8 +272,8 @@ export const ONESIME = {
     { title: 'Armoire Électrique – Site Industriel', category: 'Génie Civil', location: 'Abidjan, Cocody', image: '/images/electricite/electrique-4.jpeg' },
     { title: 'Lotissement 500 Parcelles', category: 'Gros Œuvre', location: 'Cocody, Abidjan', image: '/images/projects/project-26.jpeg' },
     { title: 'Fourniture de Matériaux – Autoroute du Nord', category: 'Fourniture', location: 'Abidjan – Bouaké', image: '/images/projects/project-29.jpeg' },
-    { title: "Transport d'Engins Lourds – Port de San Pedro", category: 'Transport', location: 'San Pedro', image: '/images/projects/project-31.jpeg' },
-    { title: 'Logistique Chantier – San Pedro', category: 'Transport', location: 'San Pedro', image: '/images/projects/project-44.jpeg' },
+    { title: "Transport d'Engins Lourds – Port de San Pedro", category: 'Génie Civil', location: 'San Pedro', image: '/images/projects/project-31.jpeg' },
+    { title: 'Logistique Chantier – San Pedro', category: 'Génie Civil', location: 'San Pedro', image: '/images/projects/project-44.jpeg' },
     // Électricité
     { title: 'Installation Électrique – Bâtiment Commercial', category: 'Électricité', location: 'Abidjan, Plateau', image: '/images/electricite/electrique-5.jpeg' },
     { title: 'Tableau Électrique – Industrie', category: 'Électricité', location: 'Abidjan, Zone 4', image: '/images/electricite/electrique-6.jpeg' },
@@ -305,12 +305,11 @@ export const ONESIME = {
     { title: 'Chantier – Ville de Man', category: 'Génie Civil', location: 'Man', image: '/images/chantier/chantier_ville_de_MAN.jpg' },
     { title: 'Tunnel – Abobo', category: 'Génie Civil', location: 'Abidjan, Abobo', image: '/images/chantier/tunnel_abobo.jpg' },
     // Engins & Machines BTP
-    { title: 'Applatisseur Goudron – Voirie', category: 'Gros Œuvre', location: 'Abidjan', image: '/images/transport_machine_BTP/applatissuer_goudron.jpg' },
+    { title: 'Applatisseur Goudron – Voirie', category: 'Transport', location: 'Abidjan', image: '/images/transport_machine_BTP/applatissuer_goudron.jpg' },
     { title: 'Camion Benne – Transport', category: 'Transport', location: 'Abidjan', image: '/images/transport_machine_BTP/camion_beine.jpg' },
-    { title: 'Groupe Électrogène CAT – Industrie', category: 'Électricité', location: 'Abidjan', image: '/images/transport_machine_BTP/CAT Diesel Generator.jpg' },
-    { title: 'Machine Caterpillar – Terrassement', category: 'Gros Œuvre', location: 'Abidjan', image: '/images/transport_machine_BTP/MACHINE_CATEPILA.jpeg' },
-    { title: 'Engin de Chantier – Nivellement', category: 'Gros Œuvre', location: 'Abidjan', image: '/images/transport_machine_BTP/MACHINE1.jpeg' },
-    { title: 'Pelleteuse – Excavation', category: 'Gros Œuvre', location: 'Abidjan', image: '/images/transport_machine_BTP/paileteuse.jpg' },
+    { title: 'Machine Caterpillar – Terrassement', category: 'Transport', location: 'Abidjan', image: '/images/transport_machine_BTP/MACHINE_CATEPILA.jpeg' },
+    { title: 'Engin de Chantier – Nivellement', category: 'Transport', location: 'Abidjan', image: '/images/transport_machine_BTP/MACHINE1.jpeg' },
+    { title: 'Pelleteuse – Excavation', category: 'Transport', location: 'Abidjan', image: '/images/transport_machine_BTP/paileteuse.jpg' },
   ] as Project[],
 
   gallery: [
