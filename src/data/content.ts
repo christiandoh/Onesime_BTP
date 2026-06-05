@@ -355,11 +355,11 @@ export const ONESIME = {
   actualites: [
     {
       id: 'chantier-2025',
-      title: 'Nouveau chantier : Construction du siège social SIFCA',
-      excerpt: 'Onesime BTP débute les travaux du nouveau siège social du Groupe SIFCA à Abidjan Plateau. Un projet d\'envergure de 12 mois.',
+      title: 'Un superviseur présent à chaque étape pour un suivi de qualité',
+      excerpt: 'Chez Onesime BTP, un chef de chantier expérimenté supervise chaque projet du début à la fin. Présent sur le terrain, il garantit le respect des normes, la coordination des équipes et la bonne exécution des travaux. Votre projet est entre de bonnes mains.',
       date: '15 Mai 2026',
       category: 'Chantier',
-      image: '/images/projects/project-24.jpeg',
+      image: '/images/actualites/chef_chantier.jpg',
     },
     {
       id: 'electricite-2025',
