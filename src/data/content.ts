@@ -277,10 +277,10 @@ export const ONESIME = {
   projects: [
     { title: 'bâtiments des dortoirs militaires à akuedo', category: 'Génie Civil', image: '/images/projects/project-24.jpeg' },
     { title: 'Maison en finission', category: 'Génie Civil', image: '/images/projects/project-25.jpeg' },
-    { title: 'Installation Tableau Électrique – Bâtiment', category: 'Génie Civil', image: '/images/electricite/electricite.jpg' },
-    { title: 'Maintenance Électrique – Industrie', category: 'Génie Civil', image: '/images/electricite/07f07d25a42500d68500b4ad288b0641.jpg' },
-    { title: 'Réseaux Haute Tension – Industriels', category: 'Génie Civil', image: '/images/electricite/36c1cf246e69365b158054a8391bf297.jpg' },
-    { title: 'Armoire Électrique – Site Industriel', category: 'Génie Civil', image: '/images/electricite/5589aa9dc0d1127aeb08d2884b281005.jpg' },
+    { title: 'Installation Tableau Électrique – Bâtiment', category: 'Électricité', image: '/images/electricite/electricite.jpg' },
+    { title: 'Maintenance Électrique – Industrie', category: 'Électricité', image: '/images/electricite/07f07d25a42500d68500b4ad288b0641.jpg' },
+    { title: 'Réseaux Haute Tension – Industriels', category: 'Électricité', image: '/images/electricite/36c1cf246e69365b158054a8391bf297.jpg' },
+    { title: 'Armoire Électrique – Site Industriel', category: 'Électricité', image: '/images/electricite/5589aa9dc0d1127aeb08d2884b281005.jpg' },
     // { title: 'Lotissement 500 Parcelles', category: 'Gros Œuvre', image: '/images/projects/project-26.jpeg' },
     // Fourniture
     { title: 'Fourniture de Matériaux – Autoroute du Nord', category: 'Fourniture', image: '/images/projects/project-29.jpeg' },
