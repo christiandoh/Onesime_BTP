@@ -7,17 +7,17 @@ import { ONESIME } from '../data/content'
 import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
 
 const ORBIT_IMAGES = [
-  { src: '/images/domotique/domotique-1.jpeg', label: 'Domotique' },
+  { src: '/images/services/domotique_principal.jpg', label: 'Domotique' },
   { src: '/images/projects/project-24.jpeg', label: 'TCE' },
   { src: '/images/chantier/chantier_bingerville.jpg', label: 'Gros œuvre' },
-  { src: '/images/eclairage/eclairage-1.jpeg', label: 'Éclairage' },
+  { src: '/images/services/eclairage_principal.jpg', label: 'Éclairage' },
   { src: '/images/electricite/electrique-1.jpeg', label: 'Électricité' },
   { src: '/images/transport_machine_BTP/camion_beine.jpg', label: 'Camions' },
   { src: '/images/services/gravier.jpg', label: 'Gravier' },
   { src: '/images/services/sable.jpg', label: 'Sable' },
   { src: '/images/services/laterite.jpg', label: 'Latérite' },
   { src: '/images/services/maison_fini.jpeg', label: 'Construction' },
-  { src: '/images/projects/project-25.jpeg', label: 'Génie civil' },
+  { src: '/images/services/genicivil.jpg', label: 'Génie civil' },
 ]
 
 function getRadius(): number {
