@@ -11,7 +11,7 @@ const ORBIT_IMAGES = [
   { src: '/images/services/tce_btp.jpg', label: 'TCE' },
   { src: '/images/chantier/chantier_bingerville.jpg', label: 'Gros œuvre' },
   { src: '/images/services/eclairage_principal.jpg', label: 'Éclairage' },
-  { src: '/images/services/electricite_industrielle.jpg', label: 'Électricité' },
+  { src: '/images/electricite/electricite.jpg', label: 'Électricité' },
   { src: '/images/transport_machine_BTP/camion_beine.jpg', label: 'Camions' },
   { src: '/images/services/gravier.jpg', label: 'Gravier' },
   { src: '/images/services/sable.jpg', label: 'Sable' },

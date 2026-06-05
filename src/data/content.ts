@@ -153,8 +153,8 @@ export const ONESIME = {
       title: 'Électricité Industrielle',
       desc: 'L\'entreprise intervient dans la conception, l\'exécution, l\'installation, la maintenance et la réhabilitation d\'infrastructures industrielles et techniques. Ses activités comprennent : réalisation de bâtiments industriels, usines et entrepôts, génie civil industriel, fondations spéciales, structures métalliques, installation et maintenance des réseaux électriques haute et basse tension, automatisation industrielle, tuyauterie industrielle, systèmes de sécurité et contrôle d\'accès, vidéosurveillance, protection incendie, solutions de domotique et gestion technique des bâtiments, maintenance préventive et corrective.',
       icon: 'Zap',
-      image: '/images/services/electricite_industrielle.jpg',
-      images: ['/images/services/electricite_industrielle.jpg', '/images/services/elec_07f07d.jpg', '/images/services/elec_36c1cf.jpg', '/images/services/elec_5589aa.jpg', '/images/services/elec_81455f.jpg', '/images/services/elec_acccad.jpg'],
+      image: '/images/electricite/electricite.jpg',
+      images: ['/images/electricite/electricite.jpg', '/images/electricite/07f07d25a42500d68500b4ad288b0641.jpg', '/images/electricite/36c1cf246e69365b158054a8391bf297.jpg', '/images/electricite/5589aa9dc0d1127aeb08d2884b281005.jpg', '/images/electricite/81455f8b48be1f33fc5a7828d5fcab34.jpg', '/images/electricite/acccad3855940fef1ba32cc8bddbb438.jpg'],
     },
     {
       id: 'camions',
@@ -277,10 +277,10 @@ export const ONESIME = {
   projects: [
     { title: 'bâtiments des dortoirs militaires à akuedo', category: 'Génie Civil', image: '/images/projects/project-24.jpeg' },
     { title: 'Maison en finission', category: 'Génie Civil', image: '/images/projects/project-25.jpeg' },
-    { title: 'Installation Tableau Électrique – Bâtiment', category: 'Génie Civil', image: '/images/electricite/electrique-1.jpeg' },
-    { title: 'Maintenance Électrique – Industrie', category: 'Génie Civil', image: '/images/electricite/electrique-2.jpeg' },
-    { title: 'Réseaux Haute Tension – Industriels', category: 'Génie Civil', image: '/images/electricite/electrique-3.jpeg' },
-    { title: 'Armoire Électrique – Site Industriel', category: 'Génie Civil', image: '/images/electricite/electrique-4.jpeg' },
+    { title: 'Installation Tableau Électrique – Bâtiment', category: 'Génie Civil', image: '/images/electricite/electricite.jpg' },
+    { title: 'Maintenance Électrique – Industrie', category: 'Génie Civil', image: '/images/electricite/07f07d25a42500d68500b4ad288b0641.jpg' },
+    { title: 'Réseaux Haute Tension – Industriels', category: 'Génie Civil', image: '/images/electricite/36c1cf246e69365b158054a8391bf297.jpg' },
+    { title: 'Armoire Électrique – Site Industriel', category: 'Génie Civil', image: '/images/electricite/5589aa9dc0d1127aeb08d2884b281005.jpg' },
     // { title: 'Lotissement 500 Parcelles', category: 'Gros Œuvre', image: '/images/projects/project-26.jpeg' },
     // Fourniture
     { title: 'Fourniture de Matériaux – Autoroute du Nord', category: 'Fourniture', image: '/images/projects/project-29.jpeg' },
@@ -293,9 +293,8 @@ export const ONESIME = {
     { title: "Transport d'Engins Lourds – Port de San Pedro", category: 'Génie Civil', image: '/images/projects/project-31.jpeg' },
     { title: 'Logistique Chantier – San Pedro', category: 'Génie Civil', image: '/images/projects/project-44.jpeg' },
     // Électricité
-    { title: 'Installation Électrique – Bâtiment Commercial', category: 'Électricité', image: '/images/electricite/electrique-5.jpeg' },
-    { title: 'Tableau Électrique – Industrie', category: 'Électricité', image: '/images/electricite/electrique-6.jpeg' },
-    { title: 'Câblage Industriel – Haute Tension', category: 'Électricité', image: '/images/electricite/electrique-7.jpeg' },
+    { title: 'Installation Électrique – Bâtiment Commercial', category: 'Électricité', image: '/images/electricite/81455f8b48be1f33fc5a7828d5fcab34.jpg' },
+    { title: 'Tableau Électrique – Industrie', category: 'Électricité', image: '/images/electricite/acccad3855940fef1ba32cc8bddbb438.jpg' },
     // Éclairage
     // { title: 'Éclairage Public – Boulevard Lagunaire', category: 'Éclairage', image: '/images/projects/project-35.jpeg' },
     // { title: 'Éclairage Public – Ville de Bouaké', category: 'Éclairage', image: '/images/projects/project-41.jpeg' },
@@ -368,7 +367,7 @@ export const ONESIME = {
       excerpt: 'Nous avons livré l\'installation électrique complète d\'une usine de 5000 m² dans la zone industrielle de Yopougon.',
       date: '02 Avril 2026',
       category: 'Réalisation',
-      image: '/images/electricite/electrique-5.jpeg',
+      image: '/images/electricite/electricite.jpg',
     },
     {
       id: 'partenariat-2025',
