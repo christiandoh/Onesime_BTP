@@ -6,6 +6,11 @@ import { asset } from '../utils/asset'
 import { ONESIME } from '../data/content'
 import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
 
+function truncate(text: string, max = 120): string {
+  if (text.length <= max) return text
+  return text.slice(0, max).trimEnd() + '...'
+}
+
 export default function Services() {
   const [selected, setSelected] = useState<typeof ONESIME.services[0] | null>(null)
 
@@ -70,7 +75,7 @@ export default function Services() {
                     <Icon name={s.icon} size={24} color="white" strokeWidth={1.5} />
                   </div>
                   <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 8 }}>{s.title}</h3>
-                  <p style={{ fontSize: '.88rem', color: '#6B7280', lineHeight: 1.6, marginBottom: 20 }}>{s.desc}</p>
+                  <p style={{ fontSize: '.88rem', color: '#6B7280', lineHeight: 1.6, marginBottom: 20 }}>{truncate(s.desc)}</p>
                   <span style={{
                     fontSize: '.85rem', fontWeight: 600, color: '#E30613',
                     display: 'inline-flex', alignItems: 'center', gap: 6, cursor: 'pointer',
