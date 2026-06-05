@@ -368,15 +368,12 @@ export default function Home() {
       <section style={{ padding: '60px 0', background: 'white' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
           <motion.div variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} style={{ textAlign: 'center', marginBottom: 32 }}>
-            <span style={{ display: 'inline-block', background: '#F4C400', color: '#111', padding: '4px 12px', borderRadius: 99, fontSize: '.7rem', fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 }}>Notre actualité</span>
-            <h2 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 2rem)', fontWeight: 800 }}>Découvrez <span style={{ color: '#E30613' }}>Onesime BTP</span> en images</h2>
+            <span style={{ display: 'inline-block', background: '#F4C400', color: '#111', padding: '4px 12px', borderRadius: 99, fontSize: '.7rem', fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 }}>Sécurité avant tout</span>
+            <h2 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 2rem)', fontWeight: 800 }}>La sécurité ne s'ajourne <span style={{ color: '#E30613' }}>pas</span></h2>
           </motion.div>
           <motion.div variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            style={{ maxWidth: 800, margin: '0 auto', borderRadius: 20, overflow: 'hidden', boxShadow: '0 12px 40px rgba(0,0,0,0.12)', aspectRatio: '16/9', position: 'relative' }}>
-            <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/100082741026610/videos/846885286297958&show_text=false&width=800"
-              width="100%" height="100%" style={{ border: 'none', borderRadius: 20, position: 'absolute', inset: 0 }}
-              scrolling="no" frameBorder="0" allowFullScreen
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Onesime BTP Video" />
+            style={{ maxWidth: 600, margin: '0 auto', borderRadius: 20, overflow: 'hidden', boxShadow: '0 12px 40px rgba(0,0,0,0.12)', minHeight: 400 }}>
+            <PinterestEmbed />
           </motion.div>
         </div>
       </section>
@@ -409,5 +406,27 @@ export default function Home() {
         }
       `}</style>
     </>
+  )
+}
+
+function PinterestEmbed() {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = '//assets.pinterest.com/js/pinit.js'
+    script.async = true
+    script.defer = true
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
+  return (
+    <div ref={ref} style={{ display: 'flex', justifyContent: 'center', padding: 16 }}>
+      <a data-pin-do="embedPin" data-pin-width="medium" href="https://www.pinterest.com/pin/1081145454316662508/"></a>
+    </div>
   )
 }
