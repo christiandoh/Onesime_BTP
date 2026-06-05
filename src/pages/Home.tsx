@@ -8,7 +8,7 @@ import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
 
 const ORBIT_IMAGES = [
   { src: '/images/services/domotique_principal.jpg', label: 'Domotique' },
-  { src: '/images/projects/project-24.jpeg', label: 'TCE' },
+  { src: '/images/services/tce_btp.jpg', label: 'TCE' },
   { src: '/images/chantier/chantier_bingerville.jpg', label: 'Gros œuvre' },
   { src: '/images/services/eclairage_principal.jpg', label: 'Éclairage' },
   { src: '/images/services/electricite_industrielle.jpg', label: 'Électricité' },

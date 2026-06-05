@@ -127,7 +127,7 @@ export const ONESIME = {
       title: 'Tous Corps d\'État (TCE)',
       desc: 'Notre entreprise assure la réalisation complète de projets de construction, de rénovation et d\'aménagement de bâtiments en coordonnant l\'ensemble des corps de métier nécessaires à leur exécution. Grâce à notre expertise en Tous Corps d\'État (TCE), nous prenons en charge toutes les phases du chantier, depuis les études techniques jusqu\'à la livraison finale de l\'ouvrage. Nos prestations couvrent notamment : le gros œuvre et le génie civil, la maçonnerie et le béton armé, la charpente et la couverture, la plomberie et les sanitaires, l\'électricité bâtiment, la climatisation, les revêtements, la menuiserie, la peinture, les aménagements, la domotique et la sécurité.',
       icon: 'Building',
-      image: '/images/projects/project-24.jpeg',
+      image: '/images/services/tce_btp.jpg',
     },
     {
       id: 'gros-oeuvre',
