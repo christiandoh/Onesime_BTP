@@ -364,26 +364,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Videos */}
-      <section style={{ padding: '60px 0', background: 'white' }}>
+      {/* Videos Gallery */}
+      <section style={{ padding: '60px 0', background: '#F5F5F5' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
           <motion.div variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-80px' }} style={{ textAlign: 'center', marginBottom: 32 }}>
-            <span style={{ display: 'inline-block', background: '#F4C400', color: '#111', padding: '4px 12px', borderRadius: 99, fontSize: '.7rem', fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 }}>Actualités</span>
-            <h2 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 2rem)', fontWeight: 800 }}>Onesime BTP en <span style={{ color: '#E30613' }}>images</span></h2>
+            <span style={{ display: 'inline-block', background: '#F4C400', color: '#111', padding: '4px 12px', borderRadius: 99, fontSize: '.7rem', fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 12 }}>Médias</span>
+            <h2 style={{ fontSize: 'clamp(1.4rem, 3.5vw, 2rem)', fontWeight: 800 }}>Onesime BTP en <span style={{ color: '#E30613' }}>vidéos</span></h2>
           </motion.div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'start' }} className="videos-grid">
-            <motion.div variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-              style={{ borderRadius: 20, overflow: 'hidden', boxShadow: '0 12px 40px rgba(0,0,0,0.12)' }}>
-              <PinterestEmbed />
-            </motion.div>
-            <motion.div variants={slideUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-              style={{ borderRadius: 20, overflow: 'hidden', boxShadow: '0 12px 40px rgba(0,0,0,0.12)', aspectRatio: '16/9', position: 'relative' }}>
-              <iframe src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/100082741026610/videos/846885286297958&show_text=false&width=800"
-                width="100%" height="100%" style={{ border: 'none', borderRadius: 20, position: 'absolute', inset: 0 }}
-                scrolling="no" frameBorder="0" allowFullScreen
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" title="Onesime BTP Video" />
-            </motion.div>
-          </div>
+          <VideoGallery />
         </div>
       </section>
 
@@ -419,24 +407,130 @@ export default function Home() {
   )
 }
 
-function PinterestEmbed() {
+function PinterestEmbed({ pinId }: { pinId: string }) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const script = document.createElement('script')
-    script.src = '//assets.pinterest.com/js/pinit.js'
-    script.async = true
-    script.defer = true
-    document.body.appendChild(script)
-
-    return () => {
-      document.body.removeChild(script)
+    const existing = document.querySelector('script[src="//assets.pinterest.com/js/pinit.js"]')
+    if (!existing) {
+      const script = document.createElement('script')
+      script.src = '//assets.pinterest.com/js/pinit.js'
+      script.async = true
+      script.defer = true
+      document.body.appendChild(script)
+    } else if (typeof (window as any).PinUtils !== 'undefined') {
+      (window as any).PinUtils.build()
     }
-  }, [])
+  }, [pinId])
 
   return (
-    <div ref={ref} style={{ display: 'flex', justifyContent: 'center', padding: 16 }}>
-      <a data-pin-do="embedPin" data-pin-width="medium" href="https://www.pinterest.com/pin/1081145454316662508/"></a>
+    <div ref={ref} style={{ display: 'flex', justifyContent: 'center', padding: 8 }}>
+      <a data-pin-do="embedPin" data-pin-width="medium" href={`https://www.pinterest.com/pin/${pinId}/`}></a>
     </div>
+  )
+}
+
+function VideoGallery() {
+  const [active, setActive] = useState(0)
+
+  const videos = [
+    {
+      id: 'facebook',
+      label: 'Onesime BTP',
+      desc: 'Présentation de nos services BTP',
+      thumbnail: '/images/image_header.jpg',
+      type: 'facebook' as const,
+    },
+    {
+      id: 'pinterest-fire',
+      label: 'Sécurité Incendie',
+      desc: 'Protection des tableaux électriques',
+      thumbnail: '/images/securite_incendi/inxtincteur.jpg',
+      type: 'pinterest' as const,
+      pinId: '1081145454316662508',
+    },
+    {
+      id: 'pinterest-domotique',
+      label: 'Domotique Intelligente',
+      desc: 'Solutions smart home connectées',
+      thumbnail: '/images/domotique/domotique.jpg',
+      type: 'pinterest' as const,
+      pinId: '156359418309028491',
+    },
+  ]
+
+  const activeVideo = videos[active]
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      {/* Main player */}
+      <div style={{
+        background: '#111', borderRadius: 20, overflow: 'hidden',
+        boxShadow: '0 12px 40px rgba(0,0,0,0.15)', marginBottom: 20,
+        minHeight: activeVideo.type === 'pinterest' ? 400 : 0,
+      }}>
+        {activeVideo.type === 'facebook' ? (
+          <div style={{ aspectRatio: '16/9', position: 'relative' }}>
+            <iframe
+              src="https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/100082741026610/videos/846885286297958&show_text=false&width=800"
+              width="100%" height="100%"
+              style={{ border: 'none', position: 'absolute', inset: 0 }}
+              scrolling="no" frameBorder="0" allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              title="Onesime BTP Video"
+            />
+          </div>
+        ) : (
+          <PinterestEmbed pinId={activeVideo.pinId} />
+        )}
+      </div>
+
+      {/* Thumbnails */}
+      <div style={{
+        display: 'flex', gap: 12, overflowX: 'auto', paddingBottom: 4,
+        scrollbarWidth: 'none',
+      }}>
+        {videos.map((v, i) => (
+          <motion.div
+            key={v.id}
+            onClick={() => setActive(i)}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            style={{
+              flex: '0 0 auto', width: 200, cursor: 'pointer', borderRadius: 14,
+              overflow: 'hidden', position: 'relative',
+              border: i === active ? '2px solid #E30613' : '2px solid transparent',
+              transition: 'border 0.3s',
+            }}
+          >
+            <div style={{ height: 110, overflow: 'hidden' }}>
+              <img src={asset(v.thumbnail)} alt={v.label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <div style={{
+              position: 'absolute', inset: 0,
+              background: 'linear-gradient(transparent 30%, rgba(0,0,0,0.8))',
+              display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
+              padding: '8px 10px',
+            }}>
+              <div style={{
+                position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)',
+                width: 36, height: 36, borderRadius: '50%',
+                background: 'rgba(227,6,19,0.9)', display: 'flex',
+                alignItems: 'center', justifyContent: 'center',
+              }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><polygon points="6,3 20,12 6,21" /></svg>
+              </div>
+              <p style={{ color: 'white', fontSize: '.78rem', fontWeight: 600, margin: 0 }}>{v.label}</p>
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '.65rem', margin: 0 }}>{v.desc}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
   )
 }
