@@ -4,6 +4,7 @@ export interface Service {
   desc: string
   icon: string
   image: string
+  images: string[]
 }
 
 export interface Stat {
@@ -121,6 +122,7 @@ export const ONESIME = {
       desc: 'Nous concevons et déployons des solutions intelligentes permettant la gestion centralisée des bâtiments modernes. Nos systèmes offrent le contrôle à distance de l\'éclairage, de la climatisation, des ouvrants, de la sécurité, de la vidéosurveillance et de la consommation énergétique via smartphone, tablette ou ordinateur. Grâce à notre expertise en BTP et en technologies connectées, nous accompagnons les particuliers, entreprises et promoteurs immobiliers dans la réalisation de bâtiments intelligents, sécurisés et économes en énergie.',
       icon: 'Monitor',
       image: '/images/services/domotique_principal.jpg',
+      images: ['/images/services/domotique_principal.jpg', '/images/services/domotique_11fd09.jpg', '/images/services/domotique_151109.jpg', '/images/services/domotique_39c9ef.jpg', '/images/services/domotique_3ff520.jpg', '/images/services/domotique_c93c27.jpg', '/images/services/domotique_fda423.jpg'],
     },
     {
       id: 'tce',
@@ -128,6 +130,7 @@ export const ONESIME = {
       desc: 'Notre entreprise assure la réalisation complète de projets de construction, de rénovation et d\'aménagement de bâtiments en coordonnant l\'ensemble des corps de métier nécessaires à leur exécution. Grâce à notre expertise en Tous Corps d\'État (TCE), nous prenons en charge toutes les phases du chantier, depuis les études techniques jusqu\'à la livraison finale de l\'ouvrage. Nos prestations couvrent notamment : le gros œuvre et le génie civil, la maçonnerie et le béton armé, la charpente et la couverture, la plomberie et les sanitaires, l\'électricité bâtiment, la climatisation, les revêtements, la menuiserie, la peinture, les aménagements, la domotique et la sécurité.',
       icon: 'Building',
       image: '/images/services/tce_btp.jpg',
+      images: ['/images/services/tce_btp.jpg', '/images/services/tce_534268.jpg', '/images/services/tce_98849c.jpg', '/images/services/tce_a7353f.jpg', '/images/services/tce_bb662e.jpg'],
     },
     {
       id: 'gros-oeuvre',
@@ -135,6 +138,7 @@ export const ONESIME = {
       desc: 'Le service Gros Œuvre prend en charge la réalisation des éléments structurels essentiels d\'un projet de construction. Il garantit la conformité des ouvrages aux normes techniques, la sécurité des utilisateurs et la durabilité des bâtiments. Prestations incluses : études techniques, terrassement, fondations, semelles, longrines, radiers, murs porteurs, voiles en béton armé, poteaux, poutres, dalles, structures en béton armé, planchers, escaliers, maçonnerie générale, charpentes en béton et mise hors d\'eau.',
       icon: 'Building2',
       image: '/images/chantier/chantier_bingerville.jpg',
+      images: ['/images/chantier/chantier_bingerville.jpg'],
     },
     {
       id: 'eclairage',
@@ -142,6 +146,7 @@ export const ONESIME = {
       desc: 'Notre entreprise assure l\'étude, la fourniture, l\'installation, la rénovation et la maintenance des systèmes d\'éclairage public destinés aux infrastructures urbaines, routières, industrielles et résidentielles. Nos prestations comprennent : études techniques et dimensionnement des réseaux, fourniture et pose de candélabres, mâts et luminaires, installation de lampadaires LED, réseaux électriques souterrains et aériens, armoires de commande et de gestion, éclairage solaire autonome, éclairage des voiries, parkings, espaces publics, génie civil associé, maintenance préventive et corrective, modernisation et mise aux normes.',
       icon: 'Sun',
       image: '/images/services/eclairage_principal.jpg',
+      images: ['/images/services/eclairage_principal.jpg', '/images/services/eclairage_s1.jpg'],
     },
     {
       id: 'electricite',
@@ -149,6 +154,7 @@ export const ONESIME = {
       desc: 'L\'entreprise intervient dans la conception, l\'exécution, l\'installation, la maintenance et la réhabilitation d\'infrastructures industrielles et techniques. Ses activités comprennent : réalisation de bâtiments industriels, usines et entrepôts, génie civil industriel, fondations spéciales, structures métalliques, installation et maintenance des réseaux électriques haute et basse tension, automatisation industrielle, tuyauterie industrielle, systèmes de sécurité et contrôle d\'accès, vidéosurveillance, protection incendie, solutions de domotique et gestion technique des bâtiments, maintenance préventive et corrective.',
       icon: 'Zap',
       image: '/images/services/electricite_industrielle.jpg',
+      images: ['/images/services/electricite_industrielle.jpg', '/images/services/elec_07f07d.jpg', '/images/services/elec_36c1cf.jpg', '/images/services/elec_5589aa.jpg', '/images/services/elec_81455f.jpg', '/images/services/elec_acccad.jpg'],
     },
     {
       id: 'camions',
@@ -156,6 +162,7 @@ export const ONESIME = {
       desc: 'Notre entreprise met à la disposition de ses clients un service de location de camions-bennes adapté aux besoins des chantiers de bâtiment, de génie civil et de travaux publics. Nos véhicules sont conçus pour assurer le transport efficace et sécurisé de matériaux tels que le sable, le gravier, la latérite, les déblais, les gravats, les déchets de chantier et autres agrégats. Nous proposons des solutions flexibles de location avec ou sans contrat de longue durée, accompagnées d\'opérateurs qualifiés, afin d\'assurer une gestion optimale du transport des matériaux sur les chantiers.',
       icon: 'Truck',
       image: '/images/transport_machine_BTP/camion_beine.jpg',
+      images: ['/images/transport_machine_BTP/camion_beine.jpg', '/images/services/camion_1.jpg', '/images/services/camion_2.jpg'],
     },
     {
       id: 'gravier',
@@ -163,6 +170,7 @@ export const ONESIME = {
       desc: 'Nous assurons l\'approvisionnement, la commercialisation et la livraison de sable, gravier, gravillons, latérite et autres matériaux de carrière destinés aux travaux de bâtiment, de génie civil et d\'aménagement urbain. Notre engagement est de fournir des matériaux de qualité dans le respect des délais et des exigences techniques de nos clients.',
       icon: 'Layers',
       image: '/images/services/gravier.jpg',
+      images: ['/images/services/gravier.jpg', '/images/services/materiaux.jpg', '/images/services/materiel_en_une_image.jpg', '/images/services/ciment.jpg', '/images/services/metriaux_perceuse.jpg', '/images/services/peinture.jpg', '/images/services/tuyeau.jpg'],
     },
     {
       id: 'sable',
@@ -170,6 +178,7 @@ export const ONESIME = {
       desc: 'Nous assurons l\'approvisionnement, la commercialisation et la livraison de sable, gravier, gravillons, latérite et autres matériaux de carrière destinés aux travaux de bâtiment, de génie civil et d\'aménagement urbain. Notre engagement est de fournir des matériaux de qualité dans le respect des délais et des exigences techniques de nos clients.',
       icon: 'Wind',
       image: '/images/services/sable.jpg',
+      images: ['/images/services/sable.jpg'],
     },
     {
       id: 'laterite',
@@ -177,6 +186,7 @@ export const ONESIME = {
       desc: 'Nous assurons l\'approvisionnement, la commercialisation et la livraison de sable, gravier, gravillons, latérite et autres matériaux de carrière destinés aux travaux de bâtiment, de génie civil et d\'aménagement urbain. Notre engagement est de fournir des matériaux de qualité dans le respect des délais et des exigences techniques de nos clients.',
       icon: 'Box',
       image: '/images/services/laterite.jpg',
+      images: ['/images/services/laterite.jpg'],
     },
     {
       id: 'construction',
@@ -184,6 +194,7 @@ export const ONESIME = {
       desc: 'Réalisation de bâtiments résidentiels et commerciaux, du gros œuvre aux finitions.',
       icon: 'Building',
       image: '/images/services/maison_fini.jpeg',
+      images: ['/images/services/maison_fini.jpeg', '/images/projects/project-43.jpeg', '/images/projects/project-44.jpeg', '/images/projects/project-31.jpeg'],
     },
     {
       id: 'genie-civil',
@@ -191,6 +202,7 @@ export const ONESIME = {
       desc: 'Le génie civil constitue l\'un des principaux domaines d\'intervention de notre entreprise. Nous réalisons des études, la conception, la construction, la réhabilitation et la maintenance d\'ouvrages de génie civil destinés aux secteurs public et privé. Nos compétences couvrent notamment la réalisation de bâtiments, routes, voiries et réseaux divers (VRD), ouvrages d\'assainissement, ouvrages hydrauliques, fondations, plateformes industrielles, murs de soutènement, ouvrages d\'art et infrastructures diverses. Grâce à une équipe qualifiée et à des équipements adaptés, nous assurons l\'exécution des travaux dans le respect des normes techniques, des exigences de qualité, des délais contractuels et des règles de sécurité.',
       icon: 'Building2',
       image: '/images/services/genicivil.jpg',
+      images: ['/images/services/genicivil.jpg'],
     },
   ] as Service[],
 
@@ -263,7 +275,7 @@ export const ONESIME = {
   ] as Testimonial[],
 
   projects: [
-    { title: 'Construction Siège Social – Groupe SIFCA', category: 'Génie Civil', image: '/images/projects/project-24.jpeg' },
+    { title: 'Cbâtiments des dortoirs militaires à akuedo', category: 'Génie Civil', image: '/images/projects/project-24.jpeg' },
     { title: 'Maison en finission', category: 'Génie Civil', image: '/images/projects/project-25.jpeg' },
     { title: 'Installation Tableau Électrique – Bâtiment', category: 'Génie Civil', image: '/images/electricite/electrique-1.jpeg' },
     { title: 'Maintenance Électrique – Industrie', category: 'Génie Civil', image: '/images/electricite/electrique-2.jpeg' },

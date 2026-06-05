@@ -13,6 +13,8 @@ function truncate(text: string, max = 120): string {
 
 export default function Services() {
   const [selected, setSelected] = useState<typeof ONESIME.services[0] | null>(null)
+  const [carouselOpen, setCarouselOpen] = useState(false)
+  const [carouselIndex, setCarouselIndex] = useState(0)
 
   return (
     <>
@@ -91,7 +93,7 @@ export default function Services() {
 
       {/* Service Detail Modal */}
       <AnimatePresence>
-        {selected && (
+        {selected && !carouselOpen && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -110,54 +112,135 @@ export default function Services() {
               exit={{ scale: 0.9, opacity: 0, y: 30 }}
               onClick={e => e.stopPropagation()}
               style={{
-                maxWidth: 700, width: '100%',
-                background: 'white', borderRadius: 24, overflow: 'hidden',
+                maxWidth: 680, width: '100%',
+                maxHeight: '90vh', overflow: 'auto',
+                background: 'white', borderRadius: 24,
                 cursor: 'default', boxShadow: '0 30px 80px rgba(0,0,0,0.4)',
+                padding: 32,
               }}
             >
-              <button onClick={() => setSelected(null)} style={{
-                position: 'absolute', top: 12, right: 12, zIndex: 5,
-                width: 36, height: 36, borderRadius: '50%',
-                background: 'rgba(0,0,0,0.4)', border: 'none',
-                cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                  <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              </button>
-
-              <div style={{ height: 280, overflow: 'hidden', position: 'relative' }}>
-                <img src={asset(selected.image)} alt={selected.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(transparent 40%, rgba(0,0,0,0.7))' }} />
-                <div style={{ position: 'absolute', bottom: 20, left: 24, display: 'flex', alignItems: 'center', gap: 14 }}>
-                  <div style={{ width: 48, height: 48, borderRadius: 12, background: '#E30613', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon name={selected.icon} size={24} color="white" strokeWidth={1.5} />
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                  <div style={{ width: 44, height: 44, borderRadius: 12, background: '#E30613', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name={selected.icon} size={22} color="white" strokeWidth={1.5} />
                   </div>
-                  <h2 style={{ color: 'white', fontSize: '1.3rem', fontWeight: 700, margin: 0, textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>{selected.title}</h2>
+                  <h2 style={{ fontSize: '1.2rem', fontWeight: 700, margin: 0, color: '#111' }}>{selected.title}</h2>
                 </div>
+                <button onClick={() => setSelected(null)} style={{
+                  width: 34, height: 34, borderRadius: '50%', background: '#f0f0f0',
+                  border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                </button>
               </div>
 
-              <div style={{ padding: '28px 32px' }}>
-                <p style={{ fontSize: '.95rem', color: '#374151', lineHeight: 1.8, margin: '0 0 24px' }}>{selected.desc}</p>
-                <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', padding: '16px 20px', background: '#F9F9F9', borderRadius: 14, marginBottom: 24 }}>
-                  <Icon name="Clock" size={18} color="#E30613" />
-                  <span style={{ fontSize: '.85rem', color: '#6B7280' }}>Livraison rapide sous 24h à Abidjan et environs</span>
-                </div>
-                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                  <a href={`https://wa.me/${ONESIME.contact.whatsapp}?text=${encodeURIComponent('Bonjour, je suis int\u00e9ress\u00e9 par le service : ' + selected.title)}`}
-                    target="_blank" rel="noopener noreferrer"
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 12, background: '#25D366', color: 'white', fontWeight: 600, fontSize: '.88rem', textDecoration: 'none' }}>
-                    <Icon name="MessageCircle" size={18} />
-                    Contactez-nous
-                  </a>
-                  <Link to="/contact" onClick={() => setSelected(null)}
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 12, background: '#E30613', color: 'white', fontWeight: 600, fontSize: '.88rem', textDecoration: 'none' }}>
-                    <Icon name="FileText" size={18} />
-                    Demander un devis
-                  </Link>
-                </div>
+              {/* Image grid */}
+              <div style={{
+                display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: 10, marginBottom: 24,
+              }}>
+                {selected.images.map((img, i) => (
+                  <motion.div
+                    key={img}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: i * 0.05 }}
+                    onClick={() => { setCarouselIndex(i); setCarouselOpen(true) }}
+                    style={{
+                      aspectRatio: '1', borderRadius: 12, overflow: 'hidden', cursor: 'pointer',
+                      border: i === 0 ? '2px solid #E30613' : '2px solid transparent',
+                    }}
+                    whileHover={{ scale: 1.05, boxShadow: '0 6px 16px rgba(0,0,0,0.15)' }}
+                  >
+                    <img src={asset(img)} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Description */}
+              <p style={{ fontSize: '.9rem', color: '#374151', lineHeight: 1.7, margin: '0 0 20px' }}>{selected.desc}</p>
+
+              {/* CTA */}
+              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+                <a href={`https://wa.me/${ONESIME.contact.whatsapp}?text=${encodeURIComponent('Bonjour, je suis int\u00e9ress\u00e9 par le service : ' + selected.title)}`}
+                  target="_blank" rel="noopener noreferrer"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 12, background: '#25D366', color: 'white', fontWeight: 600, fontSize: '.85rem', textDecoration: 'none' }}>
+                  <Icon name="MessageCircle" size={17} />
+                  WhatsApp
+                </a>
+                <Link to="/contact" onClick={() => setSelected(null)}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 12, background: '#E30613', color: 'white', fontWeight: 600, fontSize: '.85rem', textDecoration: 'none' }}>
+                  <Icon name="FileText" size={17} />
+                  Devis gratuit
+                </Link>
               </div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Carousel fullscreen */}
+      <AnimatePresence>
+        {carouselOpen && selected && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'fixed', inset: 0, zIndex: 99999,
+              background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(12px)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >
+            <button onClick={() => setCarouselOpen(false)} style={{
+              position: 'absolute', top: 20, right: 20, zIndex: 10,
+              width: 40, height: 40, borderRadius: '50%', background: 'rgba(255,255,255,0.1)', border: 'none',
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+            </button>
+
+            <div style={{ position: 'absolute', top: 20, left: '50%', transform: 'translateX(-50%)', color: 'rgba(255,255,255,0.5)', fontSize: '.85rem', fontWeight: 500 }}>
+              {carouselIndex + 1} / {selected.images.length}
+            </div>
+
+            <button onClick={() => setCarouselIndex(p => (p - 1 + selected.images.length) % selected.images.length)} style={{
+              position: 'absolute', left: 20, top: '50%', transform: 'translateY(-50%)', zIndex: 10,
+              width: 44, height: 44, borderRadius: '50%', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)',
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+
+            <button onClick={() => setCarouselIndex(p => (p + 1) % selected.images.length)} style={{
+              position: 'absolute', right: 20, top: '50%', transform: 'translateY(-50%)', zIndex: 10,
+              width: 44, height: 44, borderRadius: '50%', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)',
+              cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={carouselIndex}
+                src={asset(selected.images[carouselIndex])}
+                alt=""
+                initial={{ opacity: 0, x: 60 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -60 }}
+                transition={{ duration: 0.25 }}
+                style={{ maxWidth: '85vw', maxHeight: '80vh', objectFit: 'contain', borderRadius: 10 }}
+              />
+            </AnimatePresence>
+
+            <div style={{ position: 'absolute', bottom: 30, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 6 }}>
+              {selected.images.map((_, i) => (
+                <div key={i} onClick={() => setCarouselIndex(i)} style={{
+                  width: i === carouselIndex ? 24 : 8, height: 8, borderRadius: 4,
+                  background: i === carouselIndex ? '#F4C400' : 'rgba(255,255,255,0.25)',
+                  cursor: 'pointer', transition: 'all 0.3s',
+                }} />
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
