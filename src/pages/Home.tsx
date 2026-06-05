@@ -408,26 +408,44 @@ export default function Home() {
 }
 
 function PinterestEmbed({ pinId }: { pinId: string }) {
-  const ref = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const existing = document.querySelector('script[src="//assets.pinterest.com/js/pinit.js"]')
-    if (!existing) {
-      const script = document.createElement('script')
-      script.src = '//assets.pinterest.com/js/pinit.js'
-      script.async = true
-      script.defer = true
-      document.body.appendChild(script)
-    } else if (typeof (window as any).PinUtils !== 'undefined') {
-      (window as any).PinUtils.build()
+    const container = containerRef.current
+    if (!container) return
+
+    container.innerHTML = ''
+    const link = document.createElement('a')
+    link.setAttribute('data-pin-do', 'embedPin')
+    link.setAttribute('data-pin-width', 'medium')
+    link.href = `https://www.pinterest.com/pin/${pinId}/`
+    container.appendChild(link)
+
+    const loadPinterest = () => {
+      if (typeof (window as any).PinUtils !== 'undefined') {
+        (window as any).PinUtils.build()
+      } else {
+        const existing = document.querySelector('script[src="//assets.pinterest.com/js/pinit.js"]')
+        if (!existing) {
+          const script = document.createElement('script')
+          script.src = '//assets.pinterest.com/js/pinit.js'
+          script.async = true
+          script.defer = true
+          script.onload = () => {
+            if (typeof (window as any).PinUtils !== 'undefined') {
+              (window as any).PinUtils.build()
+            }
+          }
+          document.body.appendChild(script)
+        }
+      }
     }
+
+    const timer = setTimeout(loadPinterest, 100)
+    return () => clearTimeout(timer)
   }, [pinId])
 
-  return (
-    <div ref={ref} style={{ display: 'flex', justifyContent: 'center', padding: 8 }}>
-      <a data-pin-do="embedPin" data-pin-width="medium" href={`https://www.pinterest.com/pin/${pinId}/`}></a>
-    </div>
-  )
+  return <div ref={containerRef} style={{ display: 'flex', justifyContent: 'center', padding: 16, minHeight: 350 }} />
 }
 
 function VideoGallery() {
