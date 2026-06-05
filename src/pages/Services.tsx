@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import Icon from '../components/Icon'
 import { asset } from '../utils/asset'
 import { ONESIME } from '../data/content'
@@ -15,6 +15,15 @@ export default function Services() {
   const [selected, setSelected] = useState<typeof ONESIME.services[0] | null>(null)
   const [carouselOpen, setCarouselOpen] = useState(false)
   const [carouselIndex, setCarouselIndex] = useState(0)
+  const [searchParams] = useSearchParams()
+
+  useEffect(() => {
+    const serviceId = searchParams.get('service')
+    if (serviceId) {
+      const service = ONESIME.services.find(s => s.id === serviceId)
+      if (service) setSelected(service)
+    }
+  }, [searchParams])
 
   return (
     <>

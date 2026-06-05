@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Icon from '../components/Icon'
 import { asset } from '../utils/asset'
@@ -92,7 +92,7 @@ function useDraggableOrbit() {
 export default function Home() {
   const [radius, setRadius] = useState(380)
   const { angle, onPointerDown, onPointerMove, onPointerUp } = useDraggableOrbit()
-  const [selectedService, setSelectedService] = useState<typeof ONESIME.services[0] | null>(null)
+  const navigate = useNavigate()
   const orbitRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -117,8 +117,7 @@ export default function Home() {
   }
 
   const handleItemClick = (serviceId: string) => {
-    const service = ONESIME.services.find(s => s.id === serviceId)
-    if (service) setSelectedService(service)
+    navigate(`/services?service=${serviceId}`)
   }
 
   return (
@@ -240,67 +239,6 @@ export default function Home() {
           ))}
         </motion.div>
       </section>
-
-      {/* Modal */}
-      <AnimatePresence>
-        {selectedService && (
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            onClick={() => setSelectedService(null)}
-            style={{
-              position: 'fixed', inset: 0, zIndex: 9999,
-              background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(8px)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24,
-            }}
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 30 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 30 }}
-              onClick={e => e.stopPropagation()}
-              style={{
-                maxWidth: 600, width: '100%', maxHeight: '85vh', overflow: 'auto',
-                background: 'white', borderRadius: 24, padding: 32,
-                boxShadow: '0 30px 80px rgba(0,0,0,0.4)',
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 24 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-                  <div style={{ width: 44, height: 44, borderRadius: 12, background: '#E30613', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <Icon name={selectedService.icon} size={22} color="white" strokeWidth={1.5} />
-                  </div>
-                  <h2 style={{ fontSize: '1.2rem', fontWeight: 700, margin: 0, color: '#111' }}>{selectedService.title}</h2>
-                </div>
-                <button onClick={() => setSelectedService(null)} style={{
-                  width: 34, height: 34, borderRadius: '50%', background: '#f0f0f0',
-                  border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
-                </button>
-              </div>
-
-              {/* Image */}
-              <div style={{ height: 220, borderRadius: 14, overflow: 'hidden', marginBottom: 20 }}>
-                <img src={asset(selectedService.image)} alt={selectedService.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-
-              <p style={{ fontSize: '.88rem', color: '#374151', lineHeight: 1.7, margin: '0 0 24px' }}>{selectedService.desc}</p>
-
-              <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                <a href={`https://wa.me/${ONESIME.contact.whatsapp}?text=${encodeURIComponent('Bonjour, je suis int\u00e9ress\u00e9 par le service : ' + selectedService.title)}`}
-                  target="_blank" rel="noopener noreferrer"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 12, background: '#25D366', color: 'white', fontWeight: 600, fontSize: '.85rem', textDecoration: 'none' }}>
-                  <Icon name="MessageCircle" size={17} /> WhatsApp
-                </a>
-                <Link to="/contact" onClick={() => setSelectedService(null)}
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '11px 22px', borderRadius: 12, background: '#E30613', color: 'white', fontWeight: 600, fontSize: '.85rem', textDecoration: 'none' }}>
-                  <Icon name="FileText" size={17} /> Devis gratuit
-                </Link>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Scroll indicator */}
       <motion.div
