@@ -10,7 +10,7 @@ const ORBIT_IMAGES = [
   { src: '/images/domotique/domotique.jpg', label: 'Domotique' },
   { src: '/images/services/tce_btp.jpg', label: 'TCE' },
   { src: '/images/chantier/chantier_bingerville.jpg', label: 'Gros œuvre' },
-  { src: '/images/services/eclairage_principal.jpg', label: 'Éclairage' },
+  { src: '/images/eclairage/eclairage.jpg', label: 'Éclairage' },
   { src: '/images/electricite/electricite.jpg', label: 'Électricité' },
   { src: '/images/transport_machine_BTP/camion_beine.jpg', label: 'Camions' },
   { src: '/images/services/gravier.jpg', label: 'Gravier' },

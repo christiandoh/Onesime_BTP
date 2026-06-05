@@ -145,8 +145,8 @@ export const ONESIME = {
       title: 'Éclairage Public',
       desc: 'Notre entreprise assure l\'étude, la fourniture, l\'installation, la rénovation et la maintenance des systèmes d\'éclairage public destinés aux infrastructures urbaines, routières, industrielles et résidentielles. Nos prestations comprennent : études techniques et dimensionnement des réseaux, fourniture et pose de candélabres, mâts et luminaires, installation de lampadaires LED, réseaux électriques souterrains et aériens, armoires de commande et de gestion, éclairage solaire autonome, éclairage des voiries, parkings, espaces publics, génie civil associé, maintenance préventive et corrective, modernisation et mise aux normes.',
       icon: 'Sun',
-      image: '/images/services/eclairage_principal.jpg',
-      images: ['/images/services/eclairage_principal.jpg', '/images/services/eclairage_s1.jpg'],
+      image: '/images/eclairage/eclairage.jpg',
+      images: ['/images/eclairage/eclairage.jpg', '/images/eclairage/eclairage1.jpg', '/images/eclairage/eclairage-4.jpg'],
     },
     {
       id: 'electricite',
@@ -298,9 +298,9 @@ export const ONESIME = {
     // Éclairage
     // { title: 'Éclairage Public – Boulevard Lagunaire', category: 'Éclairage', image: '/images/projects/project-35.jpeg' },
     // { title: 'Éclairage Public – Ville de Bouaké', category: 'Éclairage', image: '/images/projects/project-41.jpeg' },
-    { title: 'Éclairage LED – Voirie Urbaine', category: 'Éclairage', image: '/images/eclairage/eclairage-1.jpeg' },
-    { title: 'Éclairage Public Connecté', category: 'Éclairage', image: '/images/eclairage/eclairage-2.jpeg' },
-    { title: 'Lampadaires Intelligents', category: 'Éclairage', image: '/images/eclairage/eclairage-3.jpeg' },
+    { title: 'Éclairage LED – Voirie Urbaine', category: 'Éclairage', image: '/images/eclairage/eclairage.jpg' },
+    { title: 'Éclairage Public Connecté', category: 'Éclairage', image: '/images/eclairage/eclairage1.jpg' },
+    { title: 'Lampadaires Intelligents', category: 'Éclairage', image: '/images/eclairage/eclairage-4.jpg' },
     // Domotique
     { title: 'Système Domotique Complet', category: 'Domotique', image: '/images/domotique/domotique.jpg' },
     { title: 'Automatisation Résidentielle', category: 'Domotique', image: '/images/domotique/11fd09f6f32211436237ebfb92591dd1.jpg' },
