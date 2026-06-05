@@ -168,7 +168,6 @@ export default function Home() {
               return (
                 <motion.div
                   key={item.label}
-                  whileHover={{ scale: scale * 1.12, zIndex: 100 }}
                   onClick={() => handleItemClick(item.serviceId)}
                   style={{
                     position: 'absolute', cursor: 'pointer',
