@@ -130,8 +130,7 @@ export default function Realisations() {
                       display: 'flex', flexDirection: 'column', justifyContent: 'flex-end',
                       padding: 20,
                     }}>
-                      <h3 style={{ color: 'white', fontSize: '.95rem', fontWeight: 700, marginBottom: 2 }}>{project.title}</h3>
-                      <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '.76rem', margin: 0 }}>{project.location}</p>
+                      <h3 style={{ color: 'white', fontSize: '.95rem', fontWeight: 700, margin: 0 }}>{project.title}</h3>
                     </div>
                   </motion.div>
                 ))}

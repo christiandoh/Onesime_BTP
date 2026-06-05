@@ -1,21 +1,21 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import Icon from '../components/Icon'
-import ZoomableImage from '../components/ZoomableImage'
 import { asset } from '../utils/asset'
 import { ONESIME } from '../data/content'
 import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
 
 export default function Services() {
+  const [selected, setSelected] = useState<typeof ONESIME.services[0] | null>(null)
+
   return (
     <>
       <section style={{
         paddingTop: 140, paddingBottom: 60,
         background: `linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.7)), url(${asset('/images/image_header.jpg')})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        textAlign: 'center',
-        position: 'relative',
+        backgroundSize: 'cover', backgroundPosition: 'center',
+        textAlign: 'center', position: 'relative',
       }}>
         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(227,6,19,.08) 0%, transparent 70%)' }} />
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 1 }}>
@@ -26,10 +26,7 @@ export default function Services() {
               fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase',
               marginBottom: 14,
             }}>Nos Services</span>
-            <h1 style={{
-              fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800,
-              color: 'white', lineHeight: 1.2,
-            }}>
+            <h1 style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', fontWeight: 800, color: 'white', lineHeight: 1.2 }}>
               Ce que nous <span style={{ color: '#E30613' }}>proposons</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: 520, margin: '12px auto 0', fontSize: '.95rem' }}>
@@ -43,52 +40,122 @@ export default function Services() {
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
           <motion.div
             variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
+            initial="hidden" whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
             style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: 28 }}
           >
-            {ONESIME.services.map((s, i) => (
+            {ONESIME.services.map(s => (
               <motion.div
                 key={s.id}
                 variants={itemSlideUp}
-                style={{
-                  background: 'white', borderRadius: 20, overflow: 'hidden',
-                  border: '1px solid #eee', transition: 'all 0.3s',
-                }}
+                style={{ background: 'white', borderRadius: 20, overflow: 'hidden', border: '1px solid #eee', cursor: 'pointer' }}
                 whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
+                onClick={() => setSelected(s)}
               >
                 <div style={{ height: 200, overflow: 'hidden' }}>
-                  <ZoomableImage src={s.image} alt={s.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img
+                    src={asset(s.image)}
+                    alt={s.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
+                    onMouseOver={e => (e.currentTarget.style.transform = 'scale(1.08)')}
+                    onMouseOut={e => (e.currentTarget.style.transform = 'scale(1)')}
+                  />
                 </div>
                 <div style={{ padding: 28 }}>
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 + i * 0.15, type: 'spring', stiffness: 200 }}
-                    style={{
-                      width: 52, height: 52, borderRadius: 14,
-                      background: '#E30613', display: 'flex', alignItems: 'center',
-                      justifyContent: 'center', marginBottom: 16,
-                    }}
-                  >
+                  <div style={{
+                    width: 52, height: 52, borderRadius: 14,
+                    background: '#E30613', display: 'flex', alignItems: 'center',
+                    justifyContent: 'center', marginBottom: 16,
+                  }}>
                     <Icon name={s.icon} size={24} color="white" strokeWidth={1.5} />
-                  </motion.div>
+                  </div>
                   <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: 8 }}>{s.title}</h3>
                   <p style={{ fontSize: '.88rem', color: '#6B7280', lineHeight: 1.6, marginBottom: 20 }}>{s.desc}</p>
-                  <Link to="/contact" style={{
+                  <span style={{
                     fontSize: '.85rem', fontWeight: 600, color: '#E30613',
-                    textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6,
+                    display: 'inline-flex', alignItems: 'center', gap: 6, cursor: 'pointer',
                   }}>
-                    Demander un devis <Icon name="ArrowRight" size={16} />
-                  </Link>
+                    En savoir plus <Icon name="ArrowRight" size={16} />
+                  </span>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
+
+      {/* Service Detail Modal */}
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelected(null)}
+            style={{
+              position: 'fixed', inset: 0, zIndex: 9999,
+              background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(8px)',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              padding: 24, cursor: 'zoom-out',
+            }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 30 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 30 }}
+              onClick={e => e.stopPropagation()}
+              style={{
+                maxWidth: 700, width: '100%',
+                background: 'white', borderRadius: 24, overflow: 'hidden',
+                cursor: 'default', boxShadow: '0 30px 80px rgba(0,0,0,0.4)',
+              }}
+            >
+              <button onClick={() => setSelected(null)} style={{
+                position: 'absolute', top: 12, right: 12, zIndex: 5,
+                width: 36, height: 36, borderRadius: '50%',
+                background: 'rgba(0,0,0,0.4)', border: 'none',
+                cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+                  <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+
+              <div style={{ height: 280, overflow: 'hidden', position: 'relative' }}>
+                <img src={asset(selected.image)} alt={selected.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(transparent 40%, rgba(0,0,0,0.7))' }} />
+                <div style={{ position: 'absolute', bottom: 20, left: 24, display: 'flex', alignItems: 'center', gap: 14 }}>
+                  <div style={{ width: 48, height: 48, borderRadius: 12, background: '#E30613', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <Icon name={selected.icon} size={24} color="white" strokeWidth={1.5} />
+                  </div>
+                  <h2 style={{ color: 'white', fontSize: '1.3rem', fontWeight: 700, margin: 0, textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>{selected.title}</h2>
+                </div>
+              </div>
+
+              <div style={{ padding: '28px 32px' }}>
+                <p style={{ fontSize: '.95rem', color: '#374151', lineHeight: 1.8, margin: '0 0 24px' }}>{selected.desc}</p>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', padding: '16px 20px', background: '#F9F9F9', borderRadius: 14, marginBottom: 24 }}>
+                  <Icon name="Clock" size={18} color="#E30613" />
+                  <span style={{ fontSize: '.85rem', color: '#6B7280' }}>Livraison rapide sous 24h à Abidjan et environs</span>
+                </div>
+                <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+                  <a href={`https://wa.me/${ONESIME.contact.whatsapp}?text=${encodeURIComponent('Bonjour, je suis int\u00e9ress\u00e9 par le service : ' + selected.title)}`}
+                    target="_blank" rel="noopener noreferrer"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 12, background: '#25D366', color: 'white', fontWeight: 600, fontSize: '.88rem', textDecoration: 'none' }}>
+                    <Icon name="MessageCircle" size={18} />
+                    Contactez-nous
+                  </a>
+                  <Link to="/contact" onClick={() => setSelected(null)}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: 8, padding: '12px 24px', borderRadius: 12, background: '#E30613', color: 'white', fontWeight: 600, fontSize: '.88rem', textDecoration: 'none' }}>
+                    <Icon name="FileText" size={18} />
+                    Demander un devis
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <section style={{ padding: '80px 0', background: '#F5F5F5' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
@@ -119,7 +186,7 @@ export default function Services() {
                 whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
               >
                 <div style={{ height: 200, overflow: 'hidden' }}>
-                  <ZoomableImage src={m.image} alt={m.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={asset(m.image)} alt={m.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div style={{ padding: 24 }}>
                   <h3 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: 8 }}>{m.title}</h3>
