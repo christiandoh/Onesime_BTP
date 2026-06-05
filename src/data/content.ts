@@ -148,7 +148,7 @@ export const ONESIME = {
       title: 'Électricité Industrielle',
       desc: 'L\'entreprise intervient dans la conception, l\'exécution, l\'installation, la maintenance et la réhabilitation d\'infrastructures industrielles et techniques. Ses activités comprennent : réalisation de bâtiments industriels, usines et entrepôts, génie civil industriel, fondations spéciales, structures métalliques, installation et maintenance des réseaux électriques haute et basse tension, automatisation industrielle, tuyauterie industrielle, systèmes de sécurité et contrôle d\'accès, vidéosurveillance, protection incendie, solutions de domotique et gestion technique des bâtiments, maintenance préventive et corrective.',
       icon: 'Zap',
-      image: '/images/electricite/electrique-1.jpeg',
+      image: '/images/services/electricite_industrielle.jpg',
     },
     {
       id: 'camions',
