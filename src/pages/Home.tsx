@@ -7,7 +7,7 @@ import { ONESIME } from '../data/content'
 import { slideUp, staggerContainer, itemSlideUp } from '../data/animations'
 
 const ORBIT_IMAGES = [
-  { src: '/images/services/domotique_principal.jpg', label: 'Domotique' },
+  { src: '/images/domotique/domotique.jpg', label: 'Domotique' },
   { src: '/images/services/tce_btp.jpg', label: 'TCE' },
   { src: '/images/chantier/chantier_bingerville.jpg', label: 'Gros œuvre' },
   { src: '/images/services/eclairage_principal.jpg', label: 'Éclairage' },

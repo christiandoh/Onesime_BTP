@@ -121,8 +121,8 @@ export const ONESIME = {
       title: 'Domotique & Maison Connectée',
       desc: 'Nous concevons et déployons des solutions intelligentes permettant la gestion centralisée des bâtiments modernes. Nos systèmes offrent le contrôle à distance de l\'éclairage, de la climatisation, des ouvrants, de la sécurité, de la vidéosurveillance et de la consommation énergétique via smartphone, tablette ou ordinateur. Grâce à notre expertise en BTP et en technologies connectées, nous accompagnons les particuliers, entreprises et promoteurs immobiliers dans la réalisation de bâtiments intelligents, sécurisés et économes en énergie.',
       icon: 'Monitor',
-      image: '/images/services/domotique_principal.jpg',
-      images: ['/images/services/domotique_principal.jpg', '/images/services/domotique_11fd09.jpg', '/images/services/domotique_151109.jpg', '/images/services/domotique_39c9ef.jpg', '/images/services/domotique_3ff520.jpg', '/images/services/domotique_c93c27.jpg', '/images/services/domotique_fda423.jpg'],
+      image: '/images/domotique/domotique.jpg',
+      images: ['/images/domotique/domotique.jpg', '/images/domotique/11fd09f6f32211436237ebfb92591dd1.jpg', '/images/domotique/1511094116b78955388ed5b52c4d2c63.jpg', '/images/domotique/39c9ef7018baca631ee681fb78adb838.jpg', '/images/domotique/3ff52097f8c49ecafccdadd0c132348a.jpg', '/images/domotique/c93c272cfd5a47d694c4929816ff3063.jpg', '/images/domotique/fda4239bdbd0e0cccf28ea65a626565c.jpg'],
     },
     {
       id: 'tce',
@@ -275,7 +275,7 @@ export const ONESIME = {
   ] as Testimonial[],
 
   projects: [
-    { title: 'Cbâtiments des dortoirs militaires à akuedo', category: 'Génie Civil', image: '/images/projects/project-24.jpeg' },
+    { title: 'bâtiments des dortoirs militaires à akuedo', category: 'Génie Civil', image: '/images/projects/project-24.jpeg' },
     { title: 'Maison en finission', category: 'Génie Civil', image: '/images/projects/project-25.jpeg' },
     { title: 'Installation Tableau Électrique – Bâtiment', category: 'Génie Civil', image: '/images/electricite/electrique-1.jpeg' },
     { title: 'Maintenance Électrique – Industrie', category: 'Génie Civil', image: '/images/electricite/electrique-2.jpeg' },
@@ -303,24 +303,20 @@ export const ONESIME = {
     { title: 'Éclairage Public Connecté', category: 'Éclairage', image: '/images/eclairage/eclairage-2.jpeg' },
     { title: 'Lampadaires Intelligents', category: 'Éclairage', image: '/images/eclairage/eclairage-3.jpeg' },
     // Domotique
-    // { title: 'Villa Domotique – Riviera', category: 'Domotique', image: '/images/projects/project-36.jpeg' },
-    { title: 'Système Domotique Complet', category: 'Domotique', image: '/images/domotique/domotique-1.jpeg' },
-    { title: 'Automatisation Résidentielle', category: 'Domotique', image: '/images/domotique/domotique-2.jpeg' },
-    { title: 'Smart Home – Contrôle Centralisé', category: 'Domotique', image: '/images/domotique/domotique-4.jpeg' },
-    { title: 'Système d\'Alarme Connecté', category: 'Domotique', image: '/images/domotique/alarme.jpeg' },
-    { title: 'Caméra de Surveillance – Villa', category: 'Domotique', image: '/images/domotique/camera_de_surveillance.jpeg' },
-    { title: 'Installation Caméras Connectées', category: 'Domotique', image: '/images/domotique/camera.jpeg' },
-    { title: 'Sécurité Intelligente – Caméras', category: 'Domotique', image: '/images/domotique/camera1.jpeg' },
-    { title: 'Domotique – Gestion Accès', category: 'Domotique', image: '/images/domotique/camera2.jpeg' },
-    { title: 'Smart Home – Maison Connectée', category: 'Domotique', image: '/images/domotique/smart_Home.jpeg' },
-    { title: 'Domotique – Contrôle Intelligent', category: 'Domotique', image: '/images/domotique/smart_home1.jpeg' },
+    { title: 'Système Domotique Complet', category: 'Domotique', image: '/images/domotique/domotique.jpg' },
+    { title: 'Automatisation Résidentielle', category: 'Domotique', image: '/images/domotique/11fd09f6f32211436237ebfb92591dd1.jpg' },
+    { title: 'Smart Home – Contrôle Centralisé', category: 'Domotique', image: '/images/domotique/1511094116b78955388ed5b52c4d2c63.jpg' },
+    { title: 'Système d\'Alarme Connecté', category: 'Domotique', image: '/images/domotique/39c9ef7018baca631ee681fb78adb838.jpg' },
+    { title: 'Caméra de Surveillance – Villa', category: 'Domotique', image: '/images/domotique/3ff52097f8c49ecafccdadd0c132348a.jpg' },
+    { title: 'Smart Home – Maison Connectée', category: 'Domotique', image: '/images/domotique/c93c272cfd5a47d694c4929816ff3063.jpg' },
+    { title: 'Domotique – Contrôle Intelligent', category: 'Domotique', image: '/images/domotique/fda4239bdbd0e0cccf28ea65a626565c.jpg' },
     { title: 'Construction Immeuble R+8 – Plateau', category: 'Génie Civil', image: '/images/projects/project-38.jpeg' },
     { title: 'Terrassement – Zone d\'Activités', category: 'Gros Œuvre', image: '/images/chantier/project-39.jpeg' },
     // Chantiers
     { title: 'Chantier de Bingerville', category: 'Gros Œuvre', image: '/images/chantier/bingerville.jpg' },
     { title: 'Chantier Résidentiel – Bingerville', category: 'Gros Œuvre', image: '/images/chantier/chantier_bingerville.jpg' },
     { title: 'Chantier – Ville de Man', category: 'Gros Œuvre', image: '/images/chantier/chantier_ville_de_MAN.jpg' },
-    { title: 'Tunnel – Abobo', category: 'Génie Civil', image: '/images/chantier/tunnel_abobo.jpg' },
+    // { title: 'Tunnel – Abobo', category: 'Génie Civil', image: '/images/chantier/tunnel_abobo.jpg' },
     // Engins & Machines BTP
     { title: 'Applatisseur Goudron – Voirie', category: 'Transport', image: '/images/transport_machine_BTP/applatissuer_goudron.jpg' },
     { title: 'Camion Benne – Transport', category: 'Transport', image: '/images/transport_machine_BTP/camion_beine.jpg' },
@@ -355,7 +351,7 @@ export const ONESIME = {
     { src: '/images/securite_incendi/detecteur_de_fumer.jpg', category: 'Sécurité', title: 'Détecteur de fumée' },
     { src: '/images/securite_incendi/inxtincteur.jpg', category: 'Sécurité', title: 'Extincteur incendie' },
     { src: '/images/securite_incendi/systeme_alarme_incendie.jpg', category: 'Sécurité', title: "Système d'alarme incendie" },
-  ],
+  ] as GalleryItem[],
 
   actualites: [
     {
@@ -388,7 +384,7 @@ export const ONESIME = {
       excerpt: 'Découvrez comment nos solutions domotiques transforment les villas et appartements en espaces connectés et intelligents.',
       date: '20 Février 2026',
       category: 'Conseil',
-      image: '/images/domotique/domotique-4.jpeg',
+      image: '/images/domotique/domotique.jpg',
     },
   ],
 }
