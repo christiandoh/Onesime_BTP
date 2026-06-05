@@ -283,15 +283,15 @@ export const ONESIME = {
     { title: 'Armoire Électrique – Site Industriel', category: 'Électricité', image: '/images/electricite/5589aa9dc0d1127aeb08d2884b281005.jpg' },
     // { title: 'Lotissement 500 Parcelles', category: 'Gros Œuvre', image: '/images/projects/project-26.jpeg' },
     // Fourniture
-    { title: 'Fourniture de Matériaux – Autoroute du Nord', category: 'Fourniture', image: '/images/projects/project-29.jpeg' },
+    // { title: 'Fourniture de Matériaux – Autoroute du Nord', category: 'Fourniture', image: '/images/projects/project-29.jpeg' },
     { title: 'Fourniture de Ciment – Chantier Résidentiel', category: 'Fourniture', image: '/images/fourniture_materiaux/ciment.jpg' },
     { title: 'Matériaux de Construction – Stock', category: 'Fourniture', image: '/images/fourniture_materiaux/materiaux.jpg' },
     { title: 'Lot de Matériel BTP', category: 'Fourniture', image: '/images/fourniture_materiaux/materiel_en_une_image.jpg' },
     { title: 'Outillage – Perceuse Industrielle', category: 'Fourniture', image: '/images/fourniture_materiaux/metriaux_perceuse.jpg' },
     { title: 'Fourniture de Peinture – Bâtiment', category: 'Fourniture', image: '/images/fourniture_materiaux/peinture.jpg' },
     { title: 'Tuyauterie – Assainissement', category: 'Fourniture', image: '/images/fourniture_materiaux/tuyeau.jpg' },
-    { title: "Transport d'Engins Lourds – Port de San Pedro", category: 'Génie Civil', image: '/images/projects/project-31.jpeg' },
-    { title: 'Logistique Chantier – San Pedro', category: 'Génie Civil', image: '/images/projects/project-44.jpeg' },
+    { title: "toillette des bâtiments de dortoirs militaires", category: 'Génie Civil', image: '/images/projects/project-31.jpeg' },
+    { title: 'Fondation des bâtiments', category: 'Génie Civil', image: '/images/projects/project-44.jpeg' },
     // Électricité
     { title: 'Installation Électrique – Bâtiment Commercial', category: 'Électricité', image: '/images/electricite/81455f8b48be1f33fc5a7828d5fcab34.jpg' },
     { title: 'Tableau Électrique – Industrie', category: 'Électricité', image: '/images/electricite/acccad3855940fef1ba32cc8bddbb438.jpg' },
@@ -309,7 +309,7 @@ export const ONESIME = {
     { title: 'Caméra de Surveillance – Villa', category: 'Domotique', image: '/images/domotique/3ff52097f8c49ecafccdadd0c132348a.jpg' },
     { title: 'Smart Home – Maison Connectée', category: 'Domotique', image: '/images/domotique/c93c272cfd5a47d694c4929816ff3063.jpg' },
     { title: 'Domotique – Contrôle Intelligent', category: 'Domotique', image: '/images/domotique/fda4239bdbd0e0cccf28ea65a626565c.jpg' },
-    { title: 'Construction Immeuble R+8 – Plateau', category: 'Génie Civil', image: '/images/projects/project-38.jpeg' },
+    // { title: 'Construction Immeuble R+8 – Plateau', category: 'Génie Civil', image: '/images/projects/project-38.jpeg' },
     { title: 'Terrassement – Zone d\'Activités', category: 'Gros Œuvre', image: '/images/chantier/project-39.jpeg' },
     // Chantiers
     { title: 'Chantier de Bingerville', category: 'Gros Œuvre', image: '/images/chantier/bingerville.jpg' },
@@ -384,6 +384,14 @@ export const ONESIME = {
       date: '20 Février 2026',
       category: 'Conseil',
       image: '/images/domotique/domotique.jpg',
+    },
+    {
+      id: 'pensons-projet',
+      title: 'Nous pensons à vos projets — Pensons projet, pensons avenir BTP',
+      excerpt: 'Chez Onesime BTP, nous croyons que chaque projet est unique et mérite une attention particulière. De la conception à la réalisation, notre équipe met tout en œuvre pour bâtir des solutions durables, innovantes et parfaitement adaptées à vos besoins. Ensemble, construisons l\'avenir.',
+      date: '01 Juin 2026',
+      category: 'Vision',
+      image: '/images/actualites/think_projet.jpg',
     },
   ],
 }
