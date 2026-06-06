@@ -301,7 +301,7 @@ export const ONESIME = {
     { title: 'Éclairage LED – Voirie Urbaine', category: 'Éclairage', image: '/images/eclairage/eclairage.jpg' },
     { title: 'Éclairage Public Connecté', category: 'Éclairage', image: '/images/eclairage/eclairage1.jpg' },
     { title: 'Lampadaires Intelligents', category: 'Éclairage', image: '/images/eclairage/eclairage-4.jpg' },
-    { title: 'Éclairage Industriel – Tableau', category: 'Éclairage', image: '/images/eclairage/eclairage_acccad.jpg' },
+    { title: 'Éclairage de rue', category: 'Éclairage', image: '/images/eclairage/eclairage_acccad.jpg' },
     // Domotique
     { title: 'Système Domotique Complet', category: 'Domotique', image: '/images/domotique/domotique.jpg' },
     { title: 'Automatisation Résidentielle', category: 'Domotique', image: '/images/domotique/11fd09f6f32211436237ebfb92591dd1.jpg' },
