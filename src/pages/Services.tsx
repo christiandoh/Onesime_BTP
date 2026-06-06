@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Link, useSearchParams } from 'react-router-dom'
 import Icon from '../components/Icon'
@@ -12,18 +12,14 @@ function truncate(text: string, max = 120): string {
 }
 
 export default function Services() {
-  const [selected, setSelected] = useState<typeof ONESIME.services[0] | null>(null)
+  const [searchParams] = useSearchParams()
+  const initialService = (() => {
+    const id = searchParams.get('service')
+    return id ? ONESIME.services.find(s => s.id === id) ?? null : null
+  })()
+  const [selected, setSelected] = useState<typeof ONESIME.services[0] | null>(initialService)
   const [carouselOpen, setCarouselOpen] = useState(false)
   const [carouselIndex, setCarouselIndex] = useState(0)
-  const [searchParams] = useSearchParams()
-
-  useEffect(() => {
-    const serviceId = searchParams.get('service')
-    if (serviceId) {
-      const service = ONESIME.services.find(s => s.id === serviceId)
-      if (service) setSelected(service)
-    }
-  }, [searchParams])
 
   return (
     <>
