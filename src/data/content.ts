@@ -83,16 +83,16 @@ export const ONESIME = {
   tagline: "Livraison de sable, gravier et latérite pour vos chantiers à Abidjan et en Côte d'Ivoire.",
 
   contact: {
-    phone1: '+225 07 78 24 46 56',
-    phone2: '+225 07 79 85 07 81',
+    phone1: '+225 01 40 58 49 11',
+    // phone2: '+225 01 40 58 49 11',
     whatsapp: '2250778244656',
     address: 'Abidjan, Côte d\'Ivoire',
-    email: 'contact@onesimebtp.com',
+    email: 'poelereine@onesimebtp.com',
   } as Contact,
 
   emails: [
-    { label: 'Direction', address: 'fabrice.krouba@onesime-btp.com' },
-    { label: 'Secrétariat', address: 'secretariat@onesime-btp.com' },
+    { label: 'Direction', address: 'fabrice.krouba@onesimbtp.com' },
+    { label: 'Secrétariat', address: 'secretariat@onesimebtp.com' },
     { label: 'Commercial', address: 'reine.poele@onesime-btp.com' },
   ] as EmailContact[],
 
